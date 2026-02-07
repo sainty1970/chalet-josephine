@@ -1,0 +1,154 @@
+---
+/**
+ * Reviews Section
+ * Guest testimonials
+ */
+
+const reviews = [
+  {
+    name: 'Sarah M.',
+    location: 'London, UK',
+    rating: 5,
+    text: 'Absolutely stunning chalet! The views of Mont Blanc are breathtaking, and every detail has been thoughtfully considered. Perfect for our family ski holiday.',
+    date: 'January 2026'
+  },
+  {
+    name: 'Thomas B.',
+    location: 'Geneva, Switzerland',
+    rating: 5,
+    text: 'Exceeded all expectations. The location in Les Bois is ideal - quiet yet close to everything. The hot tub after a day on the slopes was pure bliss.',
+    date: 'December 2025'
+  },
+  {
+    name: 'Emma & James L.',
+    location: 'Manchester, UK',
+    rating: 5,
+    text: 'We\'ve stayed in many chalets, but Chalet Josephine stands out. Impeccably maintained, luxurious amenities, and Chamonix Prestige\'s service was exceptional.',
+    date: 'February 2026'
+  }
+];
+---
+
+<section class="section-spacing">
+  <div class="container">
+    <div class="section-header">
+      <h2>What Our Guests Say</h2>
+      <p class="section-subtitle">
+        Discover why families return year after year
+      </p>
+    </div>
+
+    <div class="reviews-grid">
+      {reviews.map(review => (
+        <div class="review-card">
+          <div class="review-rating">
+            {[...Array(review.rating)].map(() => (
+              <span class="star">★</span>
+            ))}
+          </div>
+          <p class="review-text">"{review.text}"</p>
+          <div class="review-author">
+            <p class="author-name">{review.name}</p>
+            <p class="author-location">{review.location}</p>
+            <p class="review-date">{review.date}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="reviews-cta">
+      <a href="/contact" class="btn btn-primary">Book Your Stay</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+
+  .section-header h2 {
+    font-size: var(--text-4xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-4);
+  }
+
+  .section-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-slate);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-8);
+    margin-bottom: var(--space-12);
+  }
+
+  .review-card {
+    background: var(--color-pearl);
+    padding: var(--space-8);
+    border-radius: var(--radius-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .review-rating {
+    display: flex;
+    gap: var(--space-1);
+  }
+
+  .star {
+    color: var(--color-gold);
+    font-size: var(--text-xl);
+  }
+
+  .review-text {
+    font-size: var(--text-base);
+    color: var(--color-charcoal);
+    line-height: var(--leading-relaxed);
+    font-style: italic;
+    flex-grow: 1;
+  }
+
+  .review-author {
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-stone);
+  }
+
+  .author-name {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-1);
+  }
+
+  .author-location {
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+    margin-bottom: var(--space-1);
+  }
+
+  .review-date {
+    font-size: var(--text-xs);
+    color: var(--color-slate);
+  }
+
+  .reviews-cta {
+    text-align: center;
+    margin-top: var(--space-12);
+  }
+
+  @media (max-width: 640px) {
+    .section-header h2 {
+      font-size: var(--text-3xl);
+    }
+
+    .reviews-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

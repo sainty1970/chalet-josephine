@@ -1,56 +1,180 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Logo from '../components/ui/Logo.astro';
+import Hero from '../components/sections/Hero.astro';
+import PropertyHighlights from '../components/sections/PropertyHighlights.astro';
+import Reviews from '../components/sections/Reviews.astro';
+import CallToAction from '../components/sections/CallToAction.astro';
 ---
 
 <BaseLayout>
-  <main>
-    <!-- Hero section -->
-    <section class="min-h-screen flex items-center justify-center" style="background: linear-gradient(135deg, var(--color-ice) 0%, var(--color-alpine) 100%);">
-      <div class="container text-center">
-        <div class="mb-8">
-          <Logo variant="light" size="lg" />
-        </div>
-        <p class="text-2xl text-white mb-8 font-light">Luxury 6-Bedroom Ski Chalet</p>
-        <p class="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
-          Experience ultimate Alpine luxury in Les Bois, Chamonix Mont Blanc
-        </p>
-        <div class="flex gap-4 justify-center flex-wrap">
-          <a href="/availability" class="btn btn-primary btn-lg">View Availability</a>
-          <a href="/contact" class="btn btn-secondary btn-lg" style="color: white; border-color: white;">Contact Us</a>
-        </div>
-      </div>
-    </section>
+  <Hero />
+  <PropertyHighlights />
 
-    <!-- Design system test section -->
-    <section class="section-spacing">
-      <div class="container">
-        <h2 class="text-center mb-12">Design System Test</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="text-center">
-            <h3 class="mb-4">Color Palette</h3>
-            <div class="flex flex-col gap-2">
-              <div class="h-12 rounded" style="background-color: var(--color-alpine);"></div>
-              <div class="h-12 rounded" style="background-color: var(--color-ice);"></div>
-              <div class="h-12 rounded" style="background-color: var(--color-gold);"></div>
-            </div>
-          </div>
-          <div class="text-center">
-            <h3 class="mb-4">Typography</h3>
-            <p class="mb-2 font-heading text-2xl">Playfair Display</p>
-            <p class="mb-2 font-body">Inter Font Family</p>
-            <p class="text-sm">Our luxury design system in action</p>
-          </div>
-          <div class="text-center">
-            <h3 class="mb-4">Buttons</h3>
-            <div class="flex flex-col gap-3 items-center">
-              <button class="btn btn-primary">Primary Button</button>
-              <button class="btn btn-secondary">Secondary Button</button>
-            </div>
+  <!-- Location Section -->
+  <section class="section-spacing">
+    <div class="container">
+      <div class="location-content">
+        <div class="location-text">
+          <h2>Les Bois, Chamonix Mont-Blanc</h2>
+          <p class="location-description">
+            Nestled in the exclusive Les Bois area, Chalet Josephine offers the perfect blend of tranquility
+            and accessibility. Just minutes from Chamonix's vibrant town center, yet surrounded by pristine
+            Alpine nature and commanding views of Mont Blanc.
+          </p>
+          <ul class="location-features">
+            <li>5 minutes to Chamonix town center</li>
+            <li>Ski-in/ski-out access to Brévent-Flégère</li>
+            <li>Walking distance to restaurants and shops</li>
+            <li>Private, peaceful setting with mountain views</li>
+          </ul>
+          <a href="/area-guide" class="btn btn-primary">Explore the Area</a>
+        </div>
+        <div class="location-image">
+          <div class="placeholder-image">
+            <p>📸 Chalet Josephine<br/>& Mont Blanc Views</p>
           </div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <Reviews />
+
+  <!-- Gallery Preview -->
+  <section class="section-spacing bg-pearl">
+    <div class="container">
+      <div class="section-header">
+        <h2>Step Inside</h2>
+        <p class="section-subtitle">
+          Discover every corner of your Alpine sanctuary
+        </p>
+      </div>
+
+      <div class="gallery-preview">
+        <div class="gallery-grid">
+          {[1,2,3,4,5,6].map(i => (
+            <div class="gallery-item">
+              <div class="placeholder-image">
+                <p>📸 Photo {i}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="gallery-cta">
+        <a href="/gallery" class="btn btn-primary">View Full Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
 </BaseLayout>
 
+<style>
+  .location-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: center;
+  }
+
+  @media (max-width: 1024px) {
+    .location-content {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .location-text h2 {
+    font-size: var(--text-4xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-6);
+  }
+
+  .location-description {
+    font-size: var(--text-lg);
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-6);
+  }
+
+  .location-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-8);
+  }
+
+  .location-features li {
+    padding-left: var(--space-6);
+    margin-bottom: var(--space-3);
+    position: relative;
+    color: var(--color-charcoal);
+  }
+
+  .location-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-alpine);
+    font-weight: bold;
+  }
+
+  .location-image,
+  .gallery-item {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+  }
+
+  .placeholder-image {
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(135deg, var(--color-stone) 0%, var(--color-pearl) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-slate);
+    font-size: var(--text-xl);
+    padding: var(--space-4);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+
+  .section-header h2 {
+    font-size: var(--text-4xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-4);
+  }
+
+  .section-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-slate);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-12);
+  }
+
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .gallery-cta {
+    text-align: center;
+  }
+</style>

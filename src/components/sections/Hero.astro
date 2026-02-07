@@ -1,0 +1,96 @@
+---
+/**
+ * Hero Section
+ * Full-screen hero with logo and CTAs
+ */
+
+import Logo from '../ui/Logo.astro';
+---
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="container text-center">
+      <div class="mb-8">
+        <Logo variant="light" size="lg" />
+      </div>
+      <p class="hero-subtitle">Luxury 6-Bedroom Ski Chalet</p>
+      <p class="hero-description">
+        Experience ultimate Alpine luxury in Les Bois, Chamonix Mont Blanc.<br />
+        Breathtaking Mont Blanc views, premium amenities, and ski-in/ski-out access.
+      </p>
+      <div class="hero-ctas">
+        <a href="/availability" class="btn btn-primary btn-lg">View Availability</a>
+        <a href="/contact" class="btn btn-secondary btn-lg hero-btn-secondary">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-ice) 0%, var(--color-alpine) 100%);
+    overflow: hidden;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,300 Q300,100 600,300 T1200,300 L1200,600 L0,600 Z" fill="rgba(0,0,0,0.1)"/></svg>') no-repeat center bottom;
+    background-size: cover;
+    opacity: 0.3;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    padding: var(--space-8) 0;
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-2xl);
+    color: white;
+    font-weight: var(--font-weight-light);
+    margin-bottom: var(--space-8);
+  }
+
+  .hero-description {
+    font-size: var(--text-xl);
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin: 0 auto var(--space-12);
+    line-height: var(--leading-relaxed);
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-btn-secondary {
+    color: white;
+    border-color: white;
+  }
+
+  .hero-btn-secondary:hover {
+    background-color: white;
+    color: var(--color-alpine);
+  }
+
+  @media (max-width: 640px) {
+    .hero-subtitle {
+      font-size: var(--text-xl);
+    }
+
+    .hero-description {
+      font-size: var(--text-lg);
+    }
+  }
+</style>

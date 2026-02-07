@@ -1,0 +1,92 @@
+---
+/**
+ * Call to Action Section
+ * Conversion-focused CTA
+ */
+
+interface Props {
+  title?: string;
+  description?: string;
+  primaryButtonText?: string;
+  primaryButtonHref?: string;
+  secondaryButtonText?: string;
+  secondaryButtonHref?: string;
+}
+
+const {
+  title = 'Ready to Experience Alpine Luxury?',
+  description = 'Book your unforgettable stay at Chalet Josephine. Limited availability for the 2026 season.',
+  primaryButtonText = 'Check Availability',
+  primaryButtonHref = '/availability',
+  secondaryButtonText = 'Contact Us',
+  secondaryButtonHref = '/contact'
+} = Astro.props;
+---
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2 class="cta-title">{title}</h2>
+      <p class="cta-description">{description}</p>
+      <div class="cta-buttons">
+        <a href={primaryButtonHref} class="btn btn-primary btn-lg">{primaryButtonText}</a>
+        <a href={secondaryButtonHref} class="btn btn-secondary btn-lg cta-btn-secondary">{secondaryButtonText}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-alpine) 0%, var(--color-gold) 100%);
+    padding: var(--space-20) 0;
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    font-size: var(--text-4xl);
+    color: white;
+    margin-bottom: var(--space-6);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .cta-description {
+    font-size: var(--text-xl);
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: var(--space-10);
+    line-height: var(--leading-relaxed);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-btn-secondary {
+    background-color: transparent;
+    color: white;
+    border-color: white;
+  }
+
+  .cta-btn-secondary:hover {
+    background-color: white;
+    color: var(--color-alpine);
+  }
+
+  @media (max-width: 640px) {
+    .cta-title {
+      font-size: var(--text-3xl);
+    }
+
+    .cta-description {
+      font-size: var(--text-lg);
+    }
+  }
+</style>

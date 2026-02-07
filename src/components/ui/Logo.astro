@@ -1,0 +1,68 @@
+---
+/**
+ * Logo Component - Classic Elegant Style
+ * Option 1: All-caps with subtitle
+ */
+
+interface Props {
+  variant?: 'light' | 'dark';
+  size?: 'sm' | 'md' | 'lg';
+  className?: string;
+}
+
+const {
+  variant = 'dark',
+  size = 'md',
+  className = ''
+} = Astro.props;
+
+const sizes = {
+  sm: { main: '1.5rem', sub: '0.625rem' },
+  md: { main: '2.5rem', sub: '0.75rem' },
+  lg: { main: '3.5rem', sub: '0.875rem' }
+};
+
+const colors = {
+  light: { main: '#FFFFFF', sub: 'rgba(255, 255, 255, 0.9)' },
+  dark: { main: 'var(--color-alpine)', sub: 'var(--color-slate)' }
+};
+
+const currentSize = sizes[size];
+const currentColor = colors[variant];
+---
+
+<div class={`logo-wrapper ${className}`}>
+  <div
+    class="logo-main"
+    style={`
+      font-family: var(--font-heading);
+      font-size: ${currentSize.main};
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: ${currentColor.main};
+      line-height: 1.2;
+      margin-bottom: 0.25rem;
+    `}
+  >
+    CHALET JOSEPHINE
+  </div>
+  <div
+    class="logo-subtitle"
+    style={`
+      font-family: var(--font-body);
+      font-size: ${currentSize.sub};
+      letter-spacing: 0.2em;
+      color: ${currentColor.sub};
+      font-weight: 400;
+      text-transform: uppercase;
+    `}
+  >
+    Chamonix Mont-Blanc
+  </div>
+</div>
+
+<style>
+  .logo-wrapper {
+    text-align: center;
+  }
+</style>

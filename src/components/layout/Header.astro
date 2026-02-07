@@ -1,0 +1,132 @@
+---
+/**
+ * Header Component
+ * Main navigation with logo
+ */
+
+import Logo from '../ui/Logo.astro';
+
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'The Chalet', href: '/about' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'Availability', href: '/availability' },
+  { label: 'Area Guide', href: '/area-guide' },
+  { label: 'Contact', href: '/contact' },
+];
+---
+
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <!-- Logo -->
+      <a href="/" class="logo-link">
+        <Logo size="sm" variant="dark" />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop">
+        {navItems.map(item => (
+          <a href={item.href} class="nav-link">
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    background-color: var(--color-snow);
+    border-bottom: 1px solid var(--color-stone);
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) 0;
+  }
+
+  .logo-link {
+    text-decoration: none;
+    transition: opacity var(--transition-base);
+  }
+
+  .logo-link:hover {
+    opacity: 0.8;
+  }
+
+  .nav-desktop {
+    display: none;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .nav-desktop {
+      display: flex;
+    }
+  }
+
+  .nav-link {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-charcoal);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color var(--transition-base);
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-alpine);
+    transition: width var(--transition-base);
+  }
+
+  .nav-link:hover {
+    color: var(--color-alpine);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--color-charcoal);
+    cursor: pointer;
+    padding: var(--space-2);
+  }
+
+  @media (min-width: 1024px) {
+    .mobile-menu-btn {
+      display: none;
+    }
+  }
+</style>

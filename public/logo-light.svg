@@ -1,0 +1,11 @@
+<svg width="400" height="80" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- CHALET JOSEPHINE text -->
+  <text x="200" y="45" font-family="'Playfair Display', serif" font-size="32" font-weight="700" letter-spacing="-0.5" fill="#FFFFFF" text-anchor="middle">
+    CHALET JOSEPHINE
+  </text>
+
+  <!-- Chamonix Mont-Blanc subtitle -->
+  <text x="200" y="65" font-family="'Inter', sans-serif" font-size="10" font-weight="400" letter-spacing="2" fill="rgba(255, 255, 255, 0.9)" text-anchor="middle">
+    CHAMONIX MONT-BLANC
+  </text>
+</svg>

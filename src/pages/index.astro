@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Logo from '../components/ui/Logo.astro';
+---
+
+<BaseLayout>
+  <main>
+    <!-- Hero section -->
+    <section class="min-h-screen flex items-center justify-center" style="background: linear-gradient(135deg, var(--color-ice) 0%, var(--color-alpine) 100%);">
+      <div class="container text-center">
+        <div class="mb-8">
+          <Logo variant="light" size="lg" />
+        </div>
+        <p class="text-2xl text-white mb-8 font-light">Luxury 6-Bedroom Ski Chalet</p>
+        <p class="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
+          Experience ultimate Alpine luxury in Les Bois, Chamonix Mont Blanc
+        </p>
+        <div class="flex gap-4 justify-center flex-wrap">
+          <a href="/availability" class="btn btn-primary btn-lg">View Availability</a>
+          <a href="/contact" class="btn btn-secondary btn-lg" style="color: white; border-color: white;">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design system test section -->
+    <section class="section-spacing">
+      <div class="container">
+        <h2 class="text-center mb-12">Design System Test</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <h3 class="mb-4">Color Palette</h3>
+            <div class="flex flex-col gap-2">
+              <div class="h-12 rounded" style="background-color: var(--color-alpine);"></div>
+              <div class="h-12 rounded" style="background-color: var(--color-ice);"></div>
+              <div class="h-12 rounded" style="background-color: var(--color-gold);"></div>
+            </div>
+          </div>
+          <div class="text-center">
+            <h3 class="mb-4">Typography</h3>
+            <p class="mb-2 font-heading text-2xl">Playfair Display</p>
+            <p class="mb-2 font-body">Inter Font Family</p>
+            <p class="text-sm">Our luxury design system in action</p>
+          </div>
+          <div class="text-center">
+            <h3 class="mb-4">Buttons</h3>
+            <div class="flex flex-col gap-3 items-center">
+              <button class="btn btn-primary">Primary Button</button>
+              <button class="btn btn-secondary">Secondary Button</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+

@@ -1,0 +1,142 @@
+---
+/**
+ * Footer Component
+ * Site footer with logo and links
+ */
+
+import Logo from '../ui/Logo.astro';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <!-- Logo Section -->
+      <div class="footer-section">
+        <Logo size="sm" variant="dark" />
+        <p class="footer-description">
+          Experience ultimate Alpine luxury in our 6-bedroom chalet in Les Bois, Chamonix Mont Blanc.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="/about">The Chalet</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/availability">Availability & Pricing</a></li>
+          <li><a href="/area-guide">Area Guide</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-section">
+        <h4 class="footer-heading">Get in Touch</h4>
+        <ul class="footer-links">
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="mailto:info@chalet-josephine.com">info@chalet-josephine.com</a></li>
+          <li><a href="tel:+33450000000">+33 4 50 00 00 00</a></li>
+        </ul>
+        <p class="footer-managed">
+          Managed by <a href="https://www.chamonix-prestige.com" target="_blank" rel="noopener">Chamonix Prestige</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <p>&copy; {currentYear} Chalet Josephine. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-pearl);
+    padding: var(--space-16) 0 var(--space-8);
+    margin-top: var(--space-24);
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    margin-bottom: var(--space-12);
+  }
+
+  @media (min-width: 768px) {
+    .footer-content {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+  }
+
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .footer-description {
+    color: var(--color-slate);
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+    max-width: 300px;
+  }
+
+  .footer-heading {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-2);
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .footer-links a {
+    color: var(--color-slate);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    transition: color var(--transition-base);
+  }
+
+  .footer-links a:hover {
+    color: var(--color-alpine);
+  }
+
+  .footer-managed {
+    margin-top: var(--space-4);
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+  }
+
+  .footer-managed a {
+    color: var(--color-alpine);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+  }
+
+  .footer-managed a:hover {
+    color: var(--color-gold);
+  }
+
+  .footer-bottom {
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-stone);
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    color: var(--color-slate);
+    font-size: var(--text-sm);
+  }
+</style>

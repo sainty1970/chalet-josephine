@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found | Chalet Josephine"
+  description="Sorry, the page you're looking for doesn't exist. Return to Chalet Josephine to discover our luxury ski chalet in Chamonix."
+>
+  <section class="not-found">
+    <div class="container">
+      <div class="not-found-content">
+        <div class="not-found-number">404</div>
+        <h1>Lost on the Mountain?</h1>
+        <p>
+          The page you're looking for seems to have drifted off-piste.
+          Let us guide you back to base.
+        </p>
+        <div class="not-found-actions">
+          <a href="/" class="btn btn-primary btn-lg">Return Home</a>
+          <a href="/contact" class="btn btn-secondary btn-lg">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-pearl) 0%, var(--color-stone) 100%);
+    padding: var(--space-20) 0;
+  }
+
+  .not-found-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .not-found-number {
+    font-family: var(--font-heading);
+    font-size: 8rem;
+    font-weight: 900;
+    color: var(--color-alpine);
+    opacity: 0.3;
+    line-height: 1;
+    margin-bottom: var(--space-4);
+  }
+
+  .not-found-content h1 {
+    font-size: var(--text-4xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-6);
+  }
+
+  .not-found-content p {
+    font-size: var(--text-xl);
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-10);
+  }
+
+  .not-found-actions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 640px) {
+    .not-found-number { font-size: 6rem; }
+    .not-found-content h1 { font-size: var(--text-3xl); }
+  }
+</style>

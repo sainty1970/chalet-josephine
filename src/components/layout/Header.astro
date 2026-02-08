@@ -1,7 +1,7 @@
 ---
 /**
  * Header Component
- * Main navigation with logo
+ * Main navigation with logo and mobile menu
  */
 
 import Logo from '../ui/Logo.astro';
@@ -16,7 +16,7 @@ const navItems = [
 ];
 ---
 
-<header class="header">
+<header class="header" id="site-header">
   <div class="container">
     <div class="header-content">
       <!-- Logo -->
@@ -25,7 +25,7 @@ const navItems = [
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="nav-desktop">
+      <nav class="nav-desktop" aria-label="Main navigation">
         {navItems.map(item => (
           <a href={item.href} class="nav-link">
             {item.label}
@@ -34,26 +34,73 @@ const navItems = [
       </nav>
 
       <!-- Mobile Menu Button -->
-      <button class="mobile-menu-btn" aria-label="Toggle menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
+        <svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
     </div>
   </div>
+
+  <!-- Mobile Navigation Drawer -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+    <div class="mobile-nav-inner">
+      {navItems.map(item => (
+        <a href={item.href} class="mobile-nav-link">
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </nav>
 </header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const nav = document.getElementById('mobile-nav');
+  const header = document.getElementById('site-header');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    nav?.setAttribute('aria-hidden', String(isOpen));
+    header?.classList.toggle('menu-open', !isOpen);
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  });
+
+  // Close on nav link click
+  nav?.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      btn?.setAttribute('aria-expanded', 'false');
+      nav.setAttribute('aria-hidden', 'true');
+      header?.classList.remove('menu-open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Highlight active page
+  const currentPath = window.location.pathname;
+  document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPath || (href !== '/' && currentPath.startsWith(href ?? ''))) {
+      link.classList.add('active');
+    }
+  });
+</script>
 
 <style>
   .header {
     position: sticky;
     top: 0;
     z-index: var(--z-sticky);
-    background-color: var(--color-snow);
+    background-color: rgba(255, 255, 255, 0.95);
     border-bottom: 1px solid var(--color-stone);
     backdrop-filter: blur(8px);
-    background-color: rgba(255, 255, 255, 0.95);
   }
 
   .header-content {
@@ -67,22 +114,15 @@ const navItems = [
     text-decoration: none;
     transition: opacity var(--transition-base);
   }
+  .logo-link:hover { opacity: 0.8; }
 
-  .logo-link:hover {
-    opacity: 0.8;
-  }
-
+  /* Desktop nav */
   .nav-desktop {
     display: none;
     gap: var(--space-8);
     align-items: center;
   }
-
-  @media (min-width: 1024px) {
-    .nav-desktop {
-      display: flex;
-    }
-  }
+  @media (min-width: 1024px) { .nav-desktop { display: flex; } }
 
   .nav-link {
     font-family: var(--font-body);
@@ -95,7 +135,6 @@ const navItems = [
     transition: color var(--transition-base);
     position: relative;
   }
-
   .nav-link::after {
     content: '';
     position: absolute;
@@ -106,27 +145,68 @@ const navItems = [
     background-color: var(--color-alpine);
     transition: width var(--transition-base);
   }
+  .nav-link:hover,
+  .nav-link.active { color: var(--color-alpine); }
+  .nav-link:hover::after,
+  .nav-link.active::after { width: 100%; }
 
-  .nav-link:hover {
-    color: var(--color-alpine);
-  }
-
-  .nav-link:hover::after {
-    width: 100%;
-  }
-
+  /* Mobile button */
   .mobile-menu-btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: none;
     border: none;
     color: var(--color-charcoal);
     cursor: pointer;
     padding: var(--space-2);
+    width: 40px;
+    height: 40px;
+  }
+  @media (min-width: 1024px) { .mobile-menu-btn { display: none; } }
+
+  .icon-close { display: none; }
+  .menu-open .icon-menu { display: none; }
+  .menu-open .icon-close { display: block; }
+
+  /* Mobile nav drawer */
+  .mobile-nav {
+    display: none;
+    border-top: 1px solid var(--color-stone);
+    background: white;
+  }
+  @media (max-width: 1023px) {
+    .mobile-nav {
+      display: block;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .menu-open .mobile-nav {
+      max-height: 400px;
+    }
   }
 
-  @media (min-width: 1024px) {
-    .mobile-menu-btn {
-      display: none;
-    }
+  .mobile-nav-inner {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-4) 0 var(--space-6);
+  }
+
+  .mobile-nav-link {
+    padding: var(--space-3) var(--space-6);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-charcoal);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color var(--transition-base), background var(--transition-base);
+  }
+  .mobile-nav-link:hover,
+  .mobile-nav-link.active {
+    color: var(--color-alpine);
+    background: var(--color-pearl);
   }
 </style>

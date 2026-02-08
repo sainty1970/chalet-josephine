@@ -60,7 +60,7 @@ export default {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Chalet Josephine <onboarding@resend.dev>',
+        from: 'Chalet Josephine <noreply@chalet-josephine.com>',
         to: [toEmail],
         reply_to: data.email,
         subject: `Booking Enquiry: ${data.first_name} ${data.last_name} — ${data.arrival_date} to ${data.departure_date}`,
@@ -82,7 +82,7 @@ export default {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Chalet Josephine <onboarding@resend.dev>',
+        from: 'Chalet Josephine <noreply@chalet-josephine.com>',
         to: [data.email],
         subject: 'Thank you for your enquiry — Chalet Josephine',
         html: buildConfirmationHtml(data),

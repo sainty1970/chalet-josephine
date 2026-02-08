@@ -106,17 +106,30 @@ const extras = [
     </div>
   </section>
 
-  <!-- Availability Calendar Placeholder -->
+  <!-- Availability Calendar -->
   <section class="section-spacing">
     <div class="container">
       <h2 class="text-center mb-4">Availability Calendar</h2>
-      <p class="text-center text-slate mb-12">Contact us to check specific dates</p>
+      <p class="text-center text-slate mb-12">Browse availability for the coming months</p>
 
-      <div class="calendar-placeholder">
-        <div class="calendar-note">
-          <p>📅 For real-time availability, please contact us directly or use the enquiry form below.</p>
-          <p>We will respond within 24 hours with availability for your requested dates.</p>
-          <a href="/contact" class="btn btn-primary mt-6">Check My Dates</a>
+      <div class="calendar-wrapper">
+        <div class="calendar-legend">
+          <span class="legend-item"><span class="legend-dot available"></span> Available</span>
+          <span class="legend-item"><span class="legend-dot booked"></span> Booked</span>
+          <span class="legend-item"><span class="legend-dot provisional"></span> Provisional</span>
+        </div>
+
+        <div class="calendar-nav">
+          <button class="cal-btn" id="cal-prev">‹</button>
+          <h3 id="cal-heading"></h3>
+          <button class="cal-btn" id="cal-next">›</button>
+        </div>
+
+        <div class="calendar-months" id="calendar-months"></div>
+
+        <div class="calendar-cta">
+          <p>To enquire about specific dates, contact us directly:</p>
+          <a href="/contact" class="btn btn-primary">Check My Dates</a>
         </div>
       </div>
     </div>
@@ -156,6 +169,92 @@ const extras = [
     secondaryButtonHref="/about"
   />
 </BaseLayout>
+
+<script>
+  // Availability data: mark date ranges as 'booked' or 'provisional'
+  // Format: { start: 'YYYY-MM-DD', end: 'YYYY-MM-DD', status: 'booked' | 'provisional' }
+  const bookings = [
+    { start: '2025-12-20', end: '2026-01-04', status: 'booked' },
+    { start: '2026-02-14', end: '2026-02-28', status: 'booked' },
+    { start: '2026-03-07', end: '2026-03-14', status: 'provisional' },
+  ];
+
+  const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const DAY_NAMES = ['Mo','Tu','We','Th','Fr','Sa','Su'];
+
+  let viewYear = new Date().getFullYear();
+  let viewMonth = new Date().getMonth();
+
+  function getStatus(date: Date): 'available' | 'booked' | 'provisional' | 'past' {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    if (date < today) return 'past';
+
+    const d = date.toISOString().slice(0, 10);
+    for (const b of bookings) {
+      if (d >= b.start && d <= b.end) return b.status as 'booked' | 'provisional';
+    }
+    return 'available';
+  }
+
+  function renderMonth(year: number, month: number): string {
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    // Monday-first: getDay() returns 0=Sun, adjust
+    const startDow = (firstDay.getDay() + 6) % 7;
+
+    let html = `<div class="cal-month">`;
+    html += `<div class="cal-month-title">${MONTH_NAMES[month]} ${year}</div>`;
+    html += `<div class="cal-grid">`;
+
+    DAY_NAMES.forEach(d => { html += `<div class="cal-day-name">${d}</div>`; });
+
+    // Empty cells before first day
+    for (let i = 0; i < startDow; i++) {
+      html += `<div class="cal-day empty"></div>`;
+    }
+
+    for (let d = 1; d <= lastDay.getDate(); d++) {
+      const date = new Date(year, month, d);
+      const status = getStatus(date);
+      const isToday = date.getTime() === today.getTime();
+      html += `<div class="cal-day ${status}${isToday ? ' today' : ''}">${d}</div>`;
+    }
+
+    html += `</div></div>`;
+    return html;
+  }
+
+  function render() {
+    const heading = document.getElementById('cal-heading');
+    const container = document.getElementById('calendar-months');
+    if (!heading || !container) return;
+
+    // Show current month and next month
+    const m1 = { year: viewYear, month: viewMonth };
+    const m2 = viewMonth === 11
+      ? { year: viewYear + 1, month: 0 }
+      : { year: viewYear, month: viewMonth + 1 };
+
+    heading.textContent = `${MONTH_NAMES[m1.month]} – ${MONTH_NAMES[m2.month]} ${m2.year}`;
+    container.innerHTML = renderMonth(m1.year, m1.month) + renderMonth(m2.year, m2.month);
+  }
+
+  document.getElementById('cal-prev')?.addEventListener('click', () => {
+    if (viewMonth === 0) { viewMonth = 11; viewYear--; } else { viewMonth--; }
+    render();
+  });
+
+  document.getElementById('cal-next')?.addEventListener('click', () => {
+    if (viewMonth === 11) { viewMonth = 0; viewYear++; } else { viewMonth++; }
+    render();
+  });
+
+  render();
+</script>
 
 <style>
   .page-hero {
@@ -244,21 +343,121 @@ const extras = [
   }
   .included-list.extras li::before { content: '+'; color: var(--color-gold); }
 
-  .calendar-placeholder {
+  .calendar-wrapper {
     background: var(--color-pearl);
     border-radius: var(--radius-2xl);
-    padding: var(--space-16);
+    padding: var(--space-8);
   }
-  .calendar-note {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
+
+  .calendar-legend {
+    display: flex;
+    gap: var(--space-6);
+    justify-content: center;
+    margin-bottom: var(--space-6);
+    flex-wrap: wrap;
   }
-  .calendar-note p {
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
     color: var(--color-slate);
+  }
+  .legend-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+  }
+  .legend-dot.available { background: #10b981; }
+  .legend-dot.booked { background: #ef4444; }
+  .legend-dot.provisional { background: #f59e0b; }
+
+  .calendar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-6);
+    margin-bottom: var(--space-6);
+  }
+  .calendar-nav h3 {
+    font-size: var(--text-xl);
+    min-width: 200px;
+    text-align: center;
+  }
+  .cal-btn {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--color-stone);
+    background: white;
+    border-radius: var(--radius-full);
+    font-size: var(--text-2xl);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-base);
+    font-family: var(--font-body);
+    line-height: 1;
+  }
+  .cal-btn:hover {
+    border-color: var(--color-alpine);
+    color: var(--color-alpine);
+  }
+
+  .calendar-months {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+  @media (max-width: 768px) { .calendar-months { grid-template-columns: 1fr; } }
+
+  .cal-month { background: white; border-radius: var(--radius-xl); padding: var(--space-6); }
+  .cal-month-title {
     font-size: var(--text-lg);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: var(--space-4);
+    color: var(--color-charcoal);
+  }
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+  }
+  .cal-day-name {
+    text-align: center;
+    font-size: var(--text-xs);
+    color: var(--color-slate);
+    padding: var(--space-1) 0;
+    font-weight: 600;
+  }
+  .cal-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-xs);
+    border-radius: var(--radius-sm);
+    cursor: default;
+  }
+  .cal-day.empty { background: transparent; }
+  .cal-day.available { background: #d1fae5; color: #065f46; }
+  .cal-day.booked { background: #fee2e2; color: #991b1b; }
+  .cal-day.provisional { background: #fef3c7; color: #92400e; }
+  .cal-day.past { color: #d1d5db; }
+  .cal-day.today { font-weight: bold; outline: 2px solid var(--color-alpine); }
+
+  .calendar-cta {
+    text-align: center;
+    margin-top: var(--space-8);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-stone);
+  }
+  .calendar-cta p {
+    color: var(--color-slate);
     margin-bottom: var(--space-4);
   }
+
   .mt-6 { margin-top: var(--space-6); }
 
   .terms-grid {

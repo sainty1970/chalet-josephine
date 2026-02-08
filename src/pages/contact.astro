@@ -89,6 +89,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               Send Enquiry
             </button>
 
+            <p class="form-error" id="form-error" style="display:none;"></p>
+
             <p class="form-note">
               We will respond within 24 hours. Your information is kept confidential
               and will never be shared with third parties.
@@ -177,22 +179,51 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <script>
+  // Update this URL after deploying the Cloudflare Worker
+  // See workers/contact-form.js for deployment instructions
+  const WORKER_URL = 'https://chalet-josephine-contact.YOUR_SUBDOMAIN.workers.dev';
+
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const successMessage = document.getElementById('form-success');
+  const errorMessage = document.getElementById('form-error');
 
-  if (form && successMessage) {
+  if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const originalText = submitBtn.textContent ?? 'Send Enquiry';
       submitBtn.textContent = 'Sending...';
       submitBtn.disabled = true;
+      if (errorMessage) errorMessage.style.display = 'none';
 
-      // Simulate form submission (will be replaced with actual API call in Phase 3)
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const formData = new FormData(form);
+      const data: Record<string, string> = {};
+      formData.forEach((value, key) => { data[key] = value.toString(); });
 
-      form.style.display = 'none';
-      successMessage.style.display = 'block';
+      try {
+        const response = await fetch(WORKER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json() as { success?: boolean; error?: string };
+
+        if (response.ok && result.success) {
+          form.style.display = 'none';
+          if (successMessage) successMessage.style.display = 'block';
+        } else {
+          throw new Error(result.error || 'Something went wrong');
+        }
+      } catch (err) {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        if (errorMessage) {
+          errorMessage.textContent = err instanceof Error ? err.message : 'Failed to send. Please email us directly.';
+          errorMessage.style.display = 'block';
+        }
+      }
     });
   }
 </script>
@@ -288,6 +319,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .checkbox-label input { margin-top: 3px; flex-shrink: 0; }
 
   .btn-full { width: 100%; justify-content: center; }
+
+  .form-error {
+    font-size: var(--text-sm);
+    color: #dc2626;
+    text-align: center;
+    padding: var(--space-3);
+    background: #fef2f2;
+    border-radius: var(--radius-lg);
+    border: 1px solid #fecaca;
+  }
 
   .form-note {
     font-size: var(--text-xs);

@@ -30,9 +30,7 @@ import CallToAction from '../components/sections/CallToAction.astro';
           <a href="/area-guide" class="btn btn-primary">Explore the Area</a>
         </div>
         <div class="location-image">
-          <div class="placeholder-image">
-            <p>📸 Chalet Josephine<br/>& Mont Blanc Views</p>
-          </div>
+          <img src="/images/Summer Deck View 2.jpg" alt="Chalet Josephine with Mont Blanc views" />
         </div>
       </div>
     </div>
@@ -52,13 +50,24 @@ import CallToAction from '../components/sections/CallToAction.astro';
 
       <div class="gallery-preview">
         <div class="gallery-grid">
-          {[1,2,3,4,5,6].map(i => (
-            <div class="gallery-item">
-              <div class="placeholder-image">
-                <p>📸 Photo {i}</p>
-              </div>
-            </div>
-          ))}
+          <div class="gallery-item">
+            <a href="/gallery"><img src="/images/Salon 1.jpg" alt="Main living room" loading="lazy" /></a>
+          </div>
+          <div class="gallery-item">
+            <a href="/gallery"><img src="/images/Master Bed 1.jpg" alt="Master bedroom" loading="lazy" /></a>
+          </div>
+          <div class="gallery-item">
+            <a href="/gallery"><img src="/images/Kitchen 4.jpg" alt="Gourmet kitchen" loading="lazy" /></a>
+          </div>
+          <div class="gallery-item">
+            <a href="/gallery"><img src="/images/Winter Balcony View 1.jpg" alt="Mont Blanc views" loading="lazy" /></a>
+          </div>
+          <div class="gallery-item">
+            <a href="/gallery"><img src="/images/Sauna 2.jpg" alt="Private sauna" loading="lazy" /></a>
+          </div>
+          <div class="gallery-item">
+            <a href="/gallery"><img src="/images/Dining 3.jpg" alt="Dining area" loading="lazy" /></a>
+          </div>
         </div>
       </div>
 
@@ -125,16 +134,22 @@ import CallToAction from '../components/sections/CallToAction.astro';
     overflow: hidden;
   }
 
-  .placeholder-image {
-    aspect-ratio: 4 / 3;
-    background: linear-gradient(135deg, var(--color-stone) 0%, var(--color-pearl) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--color-slate);
-    font-size: var(--text-xl);
-    padding: var(--space-4);
+  .location-image img,
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+    display: block;
+  }
+
+  .gallery-item a {
+    display: block;
+    transition: transform var(--transition-base);
+  }
+
+  .gallery-item a:hover {
+    transform: scale(1.05);
   }
 
   .section-header {

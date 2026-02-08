@@ -2,27 +2,57 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CallToAction from '../components/sections/CallToAction.astro';
 
-const categories = ['All', 'Living Areas', 'Bedrooms', 'Bathrooms', 'Kitchen', 'Exterior', 'Views'];
+const categories = ['All', 'Exterior', 'Living Areas', 'Bedrooms', 'Bathrooms', 'Kitchen', 'Views', 'Amenities'];
 
 const images = [
-  { category: 'Living Areas', caption: 'Open-plan living room with fireplace' },
-  { category: 'Living Areas', caption: 'Dining area seats 14 guests' },
-  { category: 'Living Areas', caption: 'Lounge with mountain views' },
-  { category: 'Bedrooms', caption: 'Master suite with Mont Blanc views' },
-  { category: 'Bedrooms', caption: 'Bedroom 2 with king-size bed' },
-  { category: 'Bedrooms', caption: 'Bedroom 3' },
-  { category: 'Bedrooms', caption: 'Bedroom 4 - twin configuration' },
-  { category: 'Bathrooms', caption: 'Master en-suite with freestanding bath' },
-  { category: 'Bathrooms', caption: 'Shower room' },
-  { category: 'Kitchen', caption: 'Gourmet kitchen' },
-  { category: 'Kitchen', caption: 'Kitchen island and dining' },
-  { category: 'Exterior', caption: 'Chalet exterior in winter' },
-  { category: 'Exterior', caption: 'Outdoor hot tub' },
-  { category: 'Exterior', caption: 'Terrace and garden' },
-  { category: 'Views', caption: 'Mont Blanc from the terrace' },
-  { category: 'Views', caption: 'Valley views at sunset' },
-  { category: 'Views', caption: 'Winter panorama' },
-  { category: 'Views', caption: 'Summer Alpine views' },
+  // Exterior
+  { category: 'Exterior', src: '/images/Winter Exterior Rouges 2.jpg', caption: 'Winter exterior with Mont Blanc views' },
+  { category: 'Exterior', src: '/images/Winter Exterior Drus 2.jpg', caption: 'Chalet entrance in winter' },
+  { category: 'Exterior', src: '/images/Summer Exterior Front Mid 1.jpg', caption: 'Summer exterior' },
+  { category: 'Exterior', src: '/images/Balcony 5.jpg', caption: 'Private balcony' },
+
+  // Living Areas
+  { category: 'Living Areas', src: '/images/Salon 1.jpg', caption: 'Main living room with fireplace' },
+  { category: 'Living Areas', src: '/images/Salon 2.jpg', caption: 'Lounge seating area' },
+  { category: 'Living Areas', src: '/images/Dining Salon 2.jpg', caption: 'Open-plan living and dining' },
+  { category: 'Living Areas', src: '/images/Dining 3.jpg', caption: 'Dining area seats 14' },
+  { category: 'Living Areas', src: '/images/Petit Sejour 2.jpg', caption: 'Cosy sitting room' },
+  { category: 'Living Areas', src: '/images/Petit Sejour 3.jpg', caption: 'Reading nook' },
+
+  // Bedrooms
+  { category: 'Bedrooms', src: '/images/Master Bed 1.jpg', caption: 'Master bedroom' },
+  { category: 'Bedrooms', src: '/images/Master Bed 5.jpg', caption: 'Master suite seating' },
+  { category: 'Bedrooms', src: '/images/Master Bed 6.jpg', caption: 'Master bedroom detail' },
+  { category: 'Bedrooms', src: '/images/Bedroom 2 2.jpg', caption: 'Bedroom 2' },
+  { category: 'Bedrooms', src: '/images/Bedroom 2 4.jpg', caption: 'Bedroom 2 detail' },
+  { category: 'Bedrooms', src: '/images/Bedroom 3 2.jpg', caption: 'Bedroom 3' },
+  { category: 'Bedrooms', src: '/images/Bedroom 4 4.jpg', caption: 'Bedroom 4' },
+  { category: 'Bedrooms', src: '/images/Bedroom 5 1.jpg', caption: 'Bedroom 5' },
+  { category: 'Bedrooms', src: '/images/Bunk Room 1.jpg', caption: 'Bunk room' },
+
+  // Bathrooms
+  { category: 'Bathrooms', src: '/images/Master Bed Ensuite 1.jpg', caption: 'Master en-suite' },
+  { category: 'Bathrooms', src: '/images/Bedroom 2 Ensuite 2.jpg', caption: 'Bedroom 2 en-suite' },
+  { category: 'Bathrooms', src: '/images/Bedroom 3 Ensuite 1.jpg', caption: 'Bedroom 3 en-suite' },
+  { category: 'Bathrooms', src: '/images/Bedroom 4 Ensuite 1.jpg', caption: 'Bedroom 4 en-suite' },
+  { category: 'Bathrooms', src: '/images/Bedroom 5 Ensuite 1.jpg', caption: 'Bedroom 5 en-suite' },
+
+  // Kitchen
+  { category: 'Kitchen', src: '/images/Kitchen 4.jpg', caption: 'Gourmet kitchen' },
+  { category: 'Kitchen', src: '/images/Kitchen Out 2.jpg', caption: 'Kitchen overview' },
+  { category: 'Kitchen', src: '/images/Dining Kitchen 2.jpg', caption: 'Kitchen and dining' },
+
+  // Views
+  { category: 'Views', src: '/images/Winter Balcony View 1.jpg', caption: 'Mont Blanc from the balcony' },
+  { category: 'Views', src: '/images/Summer Deck View 2.jpg', caption: 'Summer deck views' },
+  { category: 'Views', src: '/images/Summer Hot Tub View 3.jpg', caption: 'Hot tub with Alpine views' },
+
+  // Amenities
+  { category: 'Amenities', src: '/images/Sauna 2.jpg', caption: 'Private sauna' },
+  { category: 'Amenities', src: '/images/Sauna 3.jpg', caption: 'Sauna detail' },
+  { category: 'Amenities', src: '/images/Games Room 1.jpg', caption: 'Games room' },
+  { category: 'Amenities', src: '/images/Study 1.jpg', caption: 'Study area' },
+  { category: 'Amenities', src: '/images/Boot Room 1.jpg', caption: 'Boot room' },
 ];
 ---
 
@@ -54,10 +84,7 @@ const images = [
         {images.map((img, i) => (
           <div class="gallery-item" data-category={img.category} data-index={i}>
             <div class="gallery-image">
-              <div class="placeholder-image">
-                <p>📸</p>
-                <p class="caption">{img.caption}</p>
-              </div>
+              <img src={img.src} alt={img.caption} loading="lazy" />
               <div class="gallery-overlay">
                 <span class="zoom-icon">🔍</span>
                 <p class="overlay-caption">{img.caption}</p>
@@ -77,11 +104,8 @@ const images = [
     <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous">‹</button>
     <button class="lightbox-next" id="lightbox-next" aria-label="Next">›</button>
     <div class="lightbox-content">
-      <div class="lightbox-image" id="lightbox-image">
-        <div class="placeholder-image large">
-          <p>📸</p>
-          <p id="lightbox-caption" class="lightbox-caption-text"></p>
-        </div>
+      <div class="lightbox-image">
+        <img id="lightbox-img" src="" alt="" />
       </div>
       <p class="lightbox-caption" id="lightbox-caption-display"></p>
     </div>
@@ -151,10 +175,16 @@ const images = [
   function openLightbox(index: number) {
     if (!lightbox) return;
     const item = visibleItems[index];
-    const caption = item?.querySelector('.caption')?.textContent ?? '';
+    const img = item?.querySelector('img');
+    const caption = img?.alt ?? '';
+
+    const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+    if (lightboxImg && img) {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+    }
 
     if (lightboxCaptionDisplay) lightboxCaptionDisplay.textContent = caption;
-    if (lightboxCaptionText) lightboxCaptionText.textContent = caption;
 
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -242,7 +272,19 @@ const images = [
   .gallery-item:hover { transform: scale(1.02); }
   .gallery-item:hover .gallery-overlay { opacity: 1; }
 
-  .gallery-image { position: relative; }
+  .gallery-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+  }
+
+  .gallery-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+    display: block;
+  }
 
   .gallery-overlay {
     position: absolute;
@@ -256,23 +298,8 @@ const images = [
     transition: opacity var(--transition-base);
     gap: var(--space-2);
   }
-  .zoom-icon { font-size: 2rem; }
+  .zoom-icon { font-size: 2rem; color: white; }
   .overlay-caption { color: white; font-size: var(--text-sm); text-align: center; padding: 0 var(--space-4); }
-
-  .placeholder-image {
-    aspect-ratio: 4/3;
-    background: linear-gradient(135deg, var(--color-stone) 0%, var(--color-pearl) 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--text-3xl);
-    gap: var(--space-2);
-  }
-  .caption {
-    font-size: var(--text-xs);
-    color: var(--color-slate);
-  }
 
   .gallery-note {
     text-align: center;
@@ -309,15 +336,18 @@ const images = [
     border-radius: var(--radius-xl);
     overflow: hidden;
     margin-bottom: var(--space-4);
+    max-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .lightbox-image .placeholder-image.large {
-    aspect-ratio: 16/10;
-    font-size: var(--text-5xl);
-    background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
-  }
-  .lightbox-image .placeholder-image.large .lightbox-caption-text {
-    color: #aaa;
-    font-size: var(--text-base);
+
+  .lightbox-image img {
+    max-width: 100%;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    display: block;
   }
 
   .lightbox-caption {

@@ -1,0 +1,120 @@
+---
+/**
+ * StructuredData.astro
+ * JSON-LD structured data for rich search results
+ * Includes: LodgingBusiness, BreadcrumbList, WebSite
+ */
+
+interface Props {
+  page?: 'home' | 'about' | 'gallery' | 'availability' | 'area-guide' | 'contact';
+  breadcrumbs?: { name: string; url: string }[];
+}
+
+const { page = 'home', breadcrumbs } = Astro.props;
+
+const siteUrl = 'https://www.chalet-josephine.com';
+
+const lodgingBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'LodgingBusiness',
+  name: 'Chalet Josephine',
+  description: 'Luxury 6-bedroom ski chalet in Les Bois, Chamonix Mont-Blanc. Ski-in/ski-out access to Brévent-Flégère, hot tub, sauna, and stunning Mont Blanc views. Managed by Chamonix Prestige.',
+  url: siteUrl,
+  telephone: '+33450000000',
+  email: 'info@chalet-josephine.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Les Bois',
+    addressLocality: 'Chamonix Mont-Blanc',
+    addressRegion: 'Haute-Savoie',
+    postalCode: '74400',
+    addressCountry: 'FR',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 45.9237,
+    longitude: 6.8694,
+  },
+  image: `${siteUrl}/images/og-image.jpg`,
+  priceRange: '€€€€',
+  checkinTime: '16:00',
+  checkoutTime: '10:00',
+  numberOfRooms: 6,
+  petsAllowed: false,
+  amenityFeature: [
+    { '@type': 'LocationFeatureSpecification', name: 'Hot tub', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Sauna', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Ski-in/Ski-out', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Private parking', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'WiFi', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Fireplace', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Gourmet kitchen', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Mountain views', value: true },
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5.0',
+    reviewCount: '3',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  review: [
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Sarah M.' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'Absolutely stunning chalet! The views of Mont Blanc are breathtaking, and every detail has been thoughtfully considered. Perfect for our family ski holiday.',
+      datePublished: '2026-01-15',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Thomas B.' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: 'Exceeded all expectations. The location in Les Bois is ideal — quiet yet close to everything. The hot tub after a day on the slopes was pure bliss.',
+      datePublished: '2025-12-28',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Emma & James L.' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      reviewBody: "We've stayed in many chalets, but Chalet Josephine stands out. Impeccably maintained, luxurious amenities, and Chamonix Prestige's service was exceptional.",
+      datePublished: '2026-02-05',
+    },
+  ],
+  starRating: { '@type': 'Rating', ratingValue: '5' },
+  containsPlace: [
+    { '@type': 'Accommodation', name: 'Master Suite', numberOfBedrooms: 1, bed: { '@type': 'BedDetails', typeOfBed: 'King size bed', numberOfBeds: 1 } },
+    { '@type': 'Accommodation', name: 'Guest Bedroom 2', numberOfBedrooms: 1, bed: { '@type': 'BedDetails', typeOfBed: 'King size bed', numberOfBeds: 1 } },
+    { '@type': 'Accommodation', name: 'Guest Bedroom 3', numberOfBedrooms: 1, bed: { '@type': 'BedDetails', typeOfBed: 'King size bed', numberOfBeds: 1 } },
+    { '@type': 'Accommodation', name: 'Guest Bedroom 4', numberOfBedrooms: 1, bed: { '@type': 'BedDetails', typeOfBed: 'Twin beds', numberOfBeds: 2 } },
+    { '@type': 'Accommodation', name: 'Bunk Room', numberOfBedrooms: 1, bed: { '@type': 'BedDetails', typeOfBed: 'Bunk beds', numberOfBeds: 2 } },
+    { '@type': 'Accommodation', name: 'Dormitory', numberOfBedrooms: 1, bed: { '@type': 'BedDetails', typeOfBed: 'Twin beds', numberOfBeds: 2 } },
+  ],
+};
+
+const webSite = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Chalet Josephine',
+  url: siteUrl,
+  description: 'Luxury 6-bedroom ski chalet in Les Bois, Chamonix. Managed by Chamonix Prestige.',
+};
+
+const breadcrumbList = breadcrumbs ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+    ...breadcrumbs.map((crumb, i) => ({
+      '@type': 'ListItem',
+      position: i + 2,
+      name: crumb.name,
+      item: `${siteUrl}${crumb.url}`,
+    })),
+  ],
+} : null;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(lodgingBusiness)} />
+{page === 'home' && <script type="application/ld+json" set:html={JSON.stringify(webSite)} />}
+{breadcrumbList && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbList)} />}

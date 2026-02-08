@@ -7,18 +7,23 @@
 
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+import StructuredData from '../components/seo/StructuredData.astro';
 import '../styles/global.css';
 
 interface Props {
   title?: string;
   description?: string;
   image?: string;
+  structuredDataPage?: 'home' | 'about' | 'gallery' | 'availability' | 'area-guide' | 'contact';
+  breadcrumbs?: { name: string; url: string }[];
 }
 
 const {
   title = 'Chalet Josephine | Luxury 6-Bedroom Ski Chalet in Chamonix',
   description = 'Experience ultimate luxury in our 6-bedroom ski chalet in Les Bois, Chamonix. Managed by Chamonix Prestige, featuring stunning Mont Blanc views and premium amenities.',
-  image = '/images/og-image.jpg'
+  image = '/images/og-image.jpg',
+  structuredDataPage = 'home',
+  breadcrumbs,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -52,9 +57,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.site)} />
 
-    <!-- Preconnect to external resources -->
+    <!-- Fonts: preconnect then load asynchronously for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;900&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;900&display=swap" /></noscript>
+
+    <!-- Structured Data -->
+    <StructuredData page={structuredDataPage} breadcrumbs={breadcrumbs} />
   </head>
   <body>
     <Header />

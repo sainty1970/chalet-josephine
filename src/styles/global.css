@@ -2,6 +2,3 @@
 
 /* Import luxury design system */
 @import "../assets/styles/luxury-theme.css";
-
-/* Google Fonts - Playfair Display & Inter */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;900&display=swap');

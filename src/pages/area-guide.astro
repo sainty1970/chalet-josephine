@@ -1,0 +1,532 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CallToAction from '../components/sections/CallToAction.astro';
+---
+
+<BaseLayout
+  title="Area Guide: Chamonix Mont-Blanc | Chalet Josephine"
+  description="Discover Chamonix Mont-Blanc: world-class skiing, Michelin-starred dining, summer hiking, and adventure sports. Your complete guide to the Alpine capital."
+>
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Chamonix Mont-Blanc</h1>
+      <p class="page-hero-subtitle">The Alpine capital of the world</p>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="section-spacing">
+    <div class="container">
+      <div class="intro-content">
+        <div class="intro-text">
+          <h2>Welcome to Chamonix</h2>
+          <p>
+            Nestled at the foot of Mont Blanc — Europe's highest peak at 4,808 metres — Chamonix Mont-Blanc
+            is one of the world's most celebrated Alpine destinations. This legendary town has been drawing
+            adventurers, skiers, and nature lovers since it hosted the first Winter Olympics in 1924.
+          </p>
+          <p>
+            From Chalet Josephine in the exclusive Les Bois neighbourhood, you are perfectly positioned
+            to experience everything this extraordinary destination offers. Whether you're carving fresh
+            powder on world-famous ski runs, dining at acclaimed restaurants, or simply soaking in
+            the breathtaking views of the Mont Blanc massif, Chamonix never disappoints.
+          </p>
+        </div>
+        <div class="intro-stats">
+          <div class="stat-item">
+            <div class="stat-number">4,808m</div>
+            <div class="stat-label">Mont Blanc altitude</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">170km</div>
+            <div class="stat-label">Ski runs</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">1924</div>
+            <div class="stat-label">First Winter Olympics</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">300+</div>
+            <div class="stat-label">Days of sunshine/year</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skiing Section -->
+  <section class="section-spacing bg-pearl">
+    <div class="container">
+      <div class="section-header">
+        <h2>World-Class Skiing</h2>
+        <p class="section-subtitle">
+          Some of the most challenging and rewarding terrain in the Alps
+        </p>
+      </div>
+
+      <div class="ski-areas">
+        <div class="ski-area-card featured">
+          <h3>Brévent-Flégère</h3>
+          <p class="ski-distance">Ski-in / Ski-out access from Chalet Josephine</p>
+          <p>
+            The iconic Brévent-Flégère ski area offers unrivalled views of the Mont Blanc massif.
+            With 445 hectares of skiable terrain and runs ranging from gentle blue slopes to
+            challenging black runs, this area caters to all abilities. The famous "Le Brévent"
+            summit at 2,525m offers panoramic views that are simply unforgettable.
+          </p>
+          <ul class="ski-stats">
+            <li>Altitude: 1,035m – 2,525m</li>
+            <li>Runs: 44 pistes</li>
+            <li>Lifts: 24</li>
+            <li>Best for: Intermediate to advanced</li>
+          </ul>
+        </div>
+
+        <div class="ski-area-card">
+          <h3>Les Grands Montets</h3>
+          <p class="ski-distance">~10 minutes by shuttle</p>
+          <p>
+            A favourite among expert skiers, Les Grands Montets is renowned for its off-piste
+            terrain, deep powder, and long vertical descents. The Argentière glacier offers
+            some of the most exhilarating skiing in Europe.
+          </p>
+          <ul class="ski-stats">
+            <li>Altitude: 1,235m – 3,275m</li>
+            <li>Runs: 21 pistes</li>
+            <li>Best for: Advanced & expert</li>
+          </ul>
+        </div>
+
+        <div class="ski-area-card">
+          <h3>Les Houches</h3>
+          <p class="ski-distance">~15 minutes by car</p>
+          <p>
+            Perfect for families and beginners, Les Houches offers quieter slopes, tree-lined
+            runs, and a relaxed atmosphere. Home to the famous Kandahar World Cup downhill race.
+          </p>
+          <ul class="ski-stats">
+            <li>Altitude: 1,000m – 1,900m</li>
+            <li>Runs: 21 pistes</li>
+            <li>Best for: Beginners & families</li>
+          </ul>
+        </div>
+
+        <div class="ski-area-card">
+          <h3>Aiguille du Midi</h3>
+          <p class="ski-distance">5 minutes from town centre</p>
+          <p>
+            The legendary Vallée Blanche off-piste route descends 24km from 3,842m through
+            glacial landscapes. An unmissable experience for any serious skier visiting Chamonix.
+          </p>
+          <ul class="ski-stats">
+            <li>Altitude: 3,842m summit</li>
+            <li>Vallée Blanche: 24km</li>
+            <li>Best for: Guided off-piste</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dining Section -->
+  <section class="section-spacing">
+    <div class="container">
+      <div class="section-header">
+        <h2>Dining & Après-Ski</h2>
+        <p class="section-subtitle">
+          From mountain refuges to Michelin-starred cuisine
+        </p>
+      </div>
+
+      <div class="dining-grid">
+        <div class="dining-category">
+          <h3>Fine Dining</h3>
+          <ul class="dining-list">
+            <li>
+              <strong>Albert 1er</strong>
+              <span>Michelin-starred restaurant with exceptional French cuisine and a legendary wine cellar</span>
+            </li>
+            <li>
+              <strong>Le Maison Carrier</strong>
+              <span>Award-winning Savoyard cuisine in a beautiful 18th-century farmhouse setting</span>
+            </li>
+            <li>
+              <strong>La Cuisine</strong>
+              <span>Contemporary Alpine cuisine with stunning Mont Blanc views</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="dining-category">
+          <h3>Mountain Restaurants</h3>
+          <ul class="dining-list">
+            <li>
+              <strong>Le Panoramic</strong>
+              <span>On-mountain dining at 2,000m with spectacular views from the Brévent area</span>
+            </li>
+            <li>
+              <strong>Chalet de la Flégère</strong>
+              <span>Traditional Savoyard lunch with tartiflette and fondue on the slopes</span>
+            </li>
+            <li>
+              <strong>Plan Joran</strong>
+              <span>Casual mountain dining at Les Grands Montets with a great terrace</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="dining-category">
+          <h3>Après-Ski</h3>
+          <ul class="dining-list">
+            <li>
+              <strong>Bar'd Up</strong>
+              <span>Legendary après-ski venue with live music and a lively atmosphere</span>
+            </li>
+            <li>
+              <strong>Monkey Bar</strong>
+              <span>Popular après spot with great cocktails and a buzzing crowd</span>
+            </li>
+            <li>
+              <strong>Elevation 1904</strong>
+              <span>Sophisticated bar with an excellent selection of wines and spirits</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="dining-category">
+          <h3>Casual & Family</h3>
+          <ul class="dining-list">
+            <li>
+              <strong>La Calèche</strong>
+              <span>Charming traditional restaurant perfect for families and groups</span>
+            </li>
+            <li>
+              <strong>Munchie</strong>
+              <span>Relaxed all-day dining with a great selection for all tastes</span>
+            </li>
+            <li>
+              <strong>Jekyll</strong>
+              <span>Relaxed pub atmosphere with hearty food and a great selection of beers</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activities Section -->
+  <section class="section-spacing bg-pearl">
+    <div class="container">
+      <div class="section-header">
+        <h2>Beyond the Slopes</h2>
+        <p class="section-subtitle">
+          Year-round adventures for every taste
+        </p>
+      </div>
+
+      <div class="activities-grid">
+        <div class="activity-card">
+          <div class="activity-icon">🏔️</div>
+          <h3>Aiguille du Midi</h3>
+          <p>Take the cable car to 3,842m for incredible views across the Alps. On a clear day, you can see into three countries. An unmissable experience at any time of year.</p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-icon">🧊</div>
+          <h3>Mer de Glace</h3>
+          <p>France's largest glacier, accessible via the famous Montenvers rack railway. Explore the ice cave and learn about glacial formation in this stunning natural wonder.</p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-icon">🥾</div>
+          <h3>Summer Hiking</h3>
+          <p>Over 300km of marked trails open from June to September. The Tour du Mont Blanc, one of the world's great long-distance walks, passes through Chamonix.</p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-icon">🪂</div>
+          <h3>Paragliding</h3>
+          <p>Soar above the valley with a tandem paraglide from Planpraz. The views of Mont Blanc from the air are simply extraordinary. Suitable for all abilities.</p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-icon">🚵</div>
+          <h3>Mountain Biking</h3>
+          <p>The Chamonix Bike Park offers trails for all levels from July. The resort opens its lifts for mountain bikers, giving access to incredible descents.</p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-icon">🛁</div>
+          <h3>Spa & Wellness</h3>
+          <p>Relax at Chamonix's excellent spa facilities, or unwind in Chalet Josephine's private hot tub and sauna after a day of adventure in the mountains.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practical Info -->
+  <section class="section-spacing">
+    <div class="container">
+      <h2 class="text-center mb-12">Getting Here</h2>
+      <div class="travel-grid">
+        <div class="travel-card">
+          <h3>✈️ By Air</h3>
+          <p>Geneva Airport is the closest international hub, just 90 minutes from Chamonix. We can arrange private airport transfers directly to your door.</p>
+          <ul>
+            <li>Geneva (GVA): 90 min</li>
+            <li>Lyon (LYS): 2.5 hours</li>
+            <li>Paris (CDG): 5 hours</li>
+          </ul>
+        </div>
+        <div class="travel-card">
+          <h3>🚂 By Train</h3>
+          <p>Direct trains run from Geneva to Chamonix via the scenic Mont-Blanc Express route. A beautiful journey through the Alps.</p>
+          <ul>
+            <li>Geneva: 2.5 hours via train</li>
+            <li>Paris: 5.5 hours via TGV + Mont-Blanc Express</li>
+            <li>Zurich: 4 hours</li>
+          </ul>
+        </div>
+        <div class="travel-card">
+          <h3>🚗 By Car</h3>
+          <p>Chamonix is well connected by motorway. The Mont Blanc Tunnel connects France and Italy. Chalet Josephine includes private parking for 2 vehicles.</p>
+          <ul>
+            <li>Geneva: 1 hour 15 min</li>
+            <li>Lyon: 2.5 hours</li>
+            <li>Milan (via tunnel): 2 hours</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    title="Ready to Explore Chamonix?"
+    description="Book Chalet Josephine and experience everything this extraordinary destination has to offer."
+    primaryButtonText="Check Availability"
+    primaryButtonHref="/availability"
+    secondaryButtonText="View the Chalet"
+    secondaryButtonHref="/about"
+  />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-alpine) 100%);
+    padding: var(--space-20) 0;
+    text-align: center;
+    color: white;
+  }
+  .page-hero h1 { color: white; margin-bottom: var(--space-4); }
+  .page-hero-subtitle { font-size: var(--text-xl); color: rgba(255,255,255,0.9); }
+
+  .text-center { text-align: center; }
+
+  .intro-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+  @media (max-width: 1024px) { .intro-content { grid-template-columns: 1fr; } }
+
+  .intro-text h2 { margin-bottom: var(--space-6); }
+  .intro-text p {
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-lg);
+  }
+
+  .intro-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+  .stat-item {
+    text-align: center;
+    padding: var(--space-8);
+    background: var(--color-pearl);
+    border-radius: var(--radius-xl);
+  }
+  .stat-number {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    color: var(--color-alpine);
+    font-weight: bold;
+    margin-bottom: var(--space-2);
+  }
+  .stat-label {
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+  .section-header h2 {
+    font-size: var(--text-4xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-4);
+  }
+  .section-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-slate);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .ski-areas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+  @media (max-width: 1024px) { .ski-areas { grid-template-columns: 1fr; } }
+
+  .ski-area-card {
+    background: white;
+    border: 2px solid var(--color-stone);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    transition: border-color var(--transition-base);
+  }
+  .ski-area-card:hover { border-color: var(--color-alpine); }
+  .ski-area-card.featured { border-color: var(--color-alpine); }
+  .ski-area-card h3 {
+    font-size: var(--text-xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-1);
+  }
+  .ski-distance {
+    font-size: var(--text-sm);
+    color: var(--color-alpine);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+  }
+  .ski-area-card p {
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-sm);
+  }
+  .ski-stats {
+    list-style: none;
+    padding: 0;
+    border-top: 1px solid var(--color-stone);
+    padding-top: var(--space-4);
+  }
+  .ski-stats li {
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+    padding: var(--space-1) 0;
+  }
+
+  .dining-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-10);
+  }
+  @media (max-width: 1024px) { .dining-grid { grid-template-columns: 1fr; } }
+
+  .dining-category h3 {
+    font-size: var(--text-xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-3);
+    border-bottom: 2px solid var(--color-alpine);
+  }
+  .dining-list {
+    list-style: none;
+    padding: 0;
+  }
+  .dining-list li {
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--color-stone);
+  }
+  .dining-list li:last-child { border-bottom: none; }
+  .dining-list strong {
+    display: block;
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-1);
+  }
+  .dining-list span {
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+  }
+
+  .activities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+  @media (max-width: 1024px) { .activities-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .activities-grid { grid-template-columns: 1fr; } }
+
+  .activity-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition-base);
+  }
+  .activity-card:hover { box-shadow: var(--shadow-md); }
+  .activity-icon { font-size: 2.5rem; margin-bottom: var(--space-4); }
+  .activity-card h3 {
+    font-size: var(--text-lg);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-3);
+  }
+  .activity-card p {
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+  }
+
+  .travel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+  @media (max-width: 1024px) { .travel-grid { grid-template-columns: 1fr; } }
+
+  .travel-card {
+    padding: var(--space-8);
+    background: var(--color-pearl);
+    border-radius: var(--radius-xl);
+  }
+  .travel-card h3 {
+    font-size: var(--text-xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-4);
+  }
+  .travel-card p {
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+  .travel-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .travel-card li {
+    font-size: var(--text-sm);
+    color: var(--color-charcoal);
+    padding: var(--space-1) 0;
+    padding-left: var(--space-4);
+    position: relative;
+  }
+  .travel-card li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-alpine);
+  }
+
+  .mb-12 { margin-bottom: var(--space-12); }
+</style>

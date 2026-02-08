@@ -1,0 +1,383 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact & Enquiries | Chalet Josephine - Luxury Ski Chalet in Chamonix"
+  description="Contact us to enquire about availability at Chalet Josephine. Our team at Chamonix Prestige will respond within 24 hours with pricing and availability."
+>
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Get in Touch</h1>
+      <p class="page-hero-subtitle">We'd love to help plan your Alpine escape</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section-spacing">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Contact Form -->
+        <div class="form-section">
+          <h2>Send an Enquiry</h2>
+          <p class="form-intro">
+            Fill in the form below and we'll get back to you within 24 hours with
+            availability and pricing for your requested dates.
+          </p>
+
+          <form class="contact-form" id="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name">First Name *</label>
+                <input type="text" id="first-name" name="first_name" required placeholder="Your first name" />
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last Name *</label>
+                <input type="text" id="last-name" name="last_name" required placeholder="Your last name" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required placeholder="your@email.com" />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+44 7000 000000" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="arrival">Arrival Date *</label>
+                <input type="date" id="arrival" name="arrival_date" required />
+              </div>
+              <div class="form-group">
+                <label for="departure">Departure Date *</label>
+                <input type="date" id="departure" name="departure_date" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="guests">Number of Guests *</label>
+              <select id="guests" name="guests" required>
+                <option value="">Select number of guests</option>
+                <option value="2">2 guests</option>
+                <option value="4">4 guests</option>
+                <option value="6">6 guests</option>
+                <option value="8">8 guests</option>
+                <option value="10">10 guests</option>
+                <option value="12">12 guests</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell us about your group, any special requirements, or questions you have..."></textarea>
+            </div>
+
+            <div class="form-group form-checkbox">
+              <label class="checkbox-label">
+                <input type="checkbox" name="newsletter" />
+                <span>I'd like to receive news and special offers from Chalet Josephine</span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg btn-full">
+              Send Enquiry
+            </button>
+
+            <p class="form-note">
+              We will respond within 24 hours. Your information is kept confidential
+              and will never be shared with third parties.
+            </p>
+          </form>
+
+          <div class="form-success" id="form-success" style="display:none;">
+            <div class="success-icon">✓</div>
+            <h3>Thank You!</h3>
+            <p>Your enquiry has been received. We'll be in touch within 24 hours.</p>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="info-section">
+          <div class="info-card">
+            <h3>Managed by Chamonix Prestige</h3>
+            <p>
+              Chalet Josephine is managed by Chamonix Prestige, specialists in luxury
+              Alpine property rentals. Our team is on hand to ensure your stay exceeds
+              every expectation.
+            </p>
+          </div>
+
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">📧</div>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:info@chalet-josephine.com">info@chalet-josephine.com</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <strong>Phone</strong>
+                <a href="tel:+33450000000">+33 (0)4 50 00 00 00</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <strong>Location</strong>
+                <span>Les Bois, Chamonix Mont-Blanc, France</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">🕐</div>
+              <div>
+                <strong>Response Time</strong>
+                <span>Within 24 hours</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card seasons-info">
+            <h3>Seasons at a Glance</h3>
+            <div class="season-list">
+              <div class="season-row">
+                <span class="season-name">Peak Winter</span>
+                <span class="season-price">€12,000/week</span>
+              </div>
+              <div class="season-row">
+                <span class="season-name">High Winter</span>
+                <span class="season-price">€10,000/week</span>
+              </div>
+              <div class="season-row">
+                <span class="season-name">Mid Winter</span>
+                <span class="season-price">€7,500/week</span>
+              </div>
+              <div class="season-row">
+                <span class="season-name">Summer</span>
+                <span class="season-price">€5,000/week</span>
+              </div>
+            </div>
+            <a href="/availability" class="btn btn-secondary mt-4">Full Pricing Details</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const successMessage = document.getElementById('form-success');
+
+  if (form && successMessage) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+
+      // Simulate form submission (will be replaced with actual API call in Phase 3)
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      form.style.display = 'none';
+      successMessage.style.display = 'block';
+    });
+  }
+</script>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-alpine) 100%);
+    padding: var(--space-20) 0;
+    text-align: center;
+    color: white;
+  }
+  .page-hero h1 { color: white; margin-bottom: var(--space-4); }
+  .page-hero-subtitle { font-size: var(--text-xl); color: rgba(255,255,255,0.9); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: var(--space-16);
+    align-items: start;
+  }
+  @media (max-width: 1024px) { .contact-grid { grid-template-columns: 1fr; } }
+
+  .form-section h2 { margin-bottom: var(--space-4); }
+  .form-intro {
+    color: var(--color-slate);
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-10);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+  @media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .form-group label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-charcoal);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: var(--space-3) var(--space-4);
+    border: 2px solid var(--color-stone);
+    border-radius: var(--radius-lg);
+    font-size: var(--text-base);
+    color: var(--color-charcoal);
+    background: white;
+    transition: border-color var(--transition-base);
+    font-family: var(--font-body);
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-alpine);
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: var(--color-slate);
+  }
+
+  .form-group textarea { resize: vertical; }
+
+  .form-checkbox { flex-direction: row; align-items: flex-start; }
+  .checkbox-label {
+    display: flex;
+    gap: var(--space-3);
+    align-items: flex-start;
+    cursor: pointer;
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+    font-weight: normal !important;
+  }
+  .checkbox-label input { margin-top: 3px; flex-shrink: 0; }
+
+  .btn-full { width: 100%; justify-content: center; }
+
+  .form-note {
+    font-size: var(--text-xs);
+    color: var(--color-slate);
+    text-align: center;
+  }
+
+  .form-success {
+    text-align: center;
+    padding: var(--space-16);
+    background: var(--color-pearl);
+    border-radius: var(--radius-2xl);
+  }
+  .success-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--color-alpine);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-2xl);
+    margin: 0 auto var(--space-6);
+  }
+  .form-success h3 { color: var(--color-charcoal); margin-bottom: var(--space-3); }
+  .form-success p { color: var(--color-slate); }
+
+  .info-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .info-card {
+    background: var(--color-pearl);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+  }
+  .info-card h3 {
+    font-size: var(--text-xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-4);
+  }
+  .info-card p {
+    color: var(--color-slate);
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .contact-item {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+    padding: var(--space-4);
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-stone);
+  }
+  .contact-icon { font-size: var(--text-xl); flex-shrink: 0; }
+  .contact-item strong {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-1);
+  }
+  .contact-item a,
+  .contact-item span {
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+  }
+  .contact-item a:hover { color: var(--color-alpine); }
+
+  .seasons-info h3 { font-size: var(--text-lg); }
+  .season-list { display: flex; flex-direction: column; gap: var(--space-2); }
+  .season-row {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--color-stone);
+    font-size: var(--text-sm);
+  }
+  .season-row:last-child { border-bottom: none; }
+  .season-name { color: var(--color-slate); }
+  .season-price { color: var(--color-charcoal); font-weight: 600; }
+
+  .mt-4 { margin-top: var(--space-4); }
+</style>

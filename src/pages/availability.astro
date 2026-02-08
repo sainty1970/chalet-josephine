@@ -1,0 +1,288 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CallToAction from '../components/sections/CallToAction.astro';
+
+const seasons = [
+  {
+    name: 'Peak Winter (Christmas & New Year)',
+    dates: 'Dec 20 – Jan 4',
+    price: '€12,000',
+    perWeek: true,
+    minStay: 7
+  },
+  {
+    name: 'High Winter (February Half Term)',
+    dates: 'Feb 14 – Feb 28',
+    price: '€10,000',
+    perWeek: true,
+    minStay: 7
+  },
+  {
+    name: 'Mid Winter',
+    dates: 'Jan 5 – Feb 13 & Mar 1 – Mar 31',
+    price: '€7,500',
+    perWeek: true,
+    minStay: 7
+  },
+  {
+    name: 'Summer',
+    dates: 'Jun 15 – Sep 15',
+    price: '€5,000',
+    perWeek: true,
+    minStay: 7
+  },
+];
+
+const included = [
+  'Linen and towels',
+  'Cleaning service (mid-week and end of stay)',
+  'Welcome hamper',
+  'WiFi',
+  'Parking for 2 vehicles',
+  'Hot tub access',
+  'Sauna access',
+  'Airport transfer (on request)',
+];
+
+const extras = [
+  'Private chef (on request)',
+  'Ski instructor (on request)',
+  'Childcare services (on request)',
+  'Grocery pre-stocking (on request)',
+  'Ski hire and lift passes (on request)',
+];
+---
+
+<BaseLayout
+  title="Availability & Pricing | Chalet Josephine - Luxury Ski Chalet in Chamonix"
+  description="Check availability and pricing for Chalet Josephine. Seasonal rates for this luxury 6-bedroom ski chalet in Chamonix. Book your Alpine escape today."
+>
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Availability & Pricing</h1>
+      <p class="page-hero-subtitle">Transparent pricing for an exceptional stay</p>
+    </div>
+  </section>
+
+  <!-- Pricing Table -->
+  <section class="section-spacing">
+    <div class="container">
+      <h2 class="text-center mb-4">Seasonal Rates</h2>
+      <p class="text-center text-slate mb-12">All prices are per week for the entire chalet (up to 12 guests)</p>
+
+      <div class="pricing-grid">
+        {seasons.map(season => (
+          <div class="pricing-card">
+            <h3>{season.name}</h3>
+            <p class="dates">{season.dates}</p>
+            <div class="price">{season.price}</div>
+            <p class="per-week">per week</p>
+            <p class="min-stay">Minimum {season.minStay} nights</p>
+            <a href="/contact" class="btn btn-primary">Enquire Now</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="section-spacing bg-pearl">
+    <div class="container">
+      <div class="included-grid">
+        <div>
+          <h2>What's Included</h2>
+          <ul class="included-list">
+            {included.map(item => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div>
+          <h2>Optional Extras</h2>
+          <ul class="included-list extras">
+            {extras.map(item => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Availability Calendar Placeholder -->
+  <section class="section-spacing">
+    <div class="container">
+      <h2 class="text-center mb-4">Availability Calendar</h2>
+      <p class="text-center text-slate mb-12">Contact us to check specific dates</p>
+
+      <div class="calendar-placeholder">
+        <div class="calendar-note">
+          <p>📅 For real-time availability, please contact us directly or use the enquiry form below.</p>
+          <p>We will respond within 24 hours with availability for your requested dates.</p>
+          <a href="/contact" class="btn btn-primary mt-6">Check My Dates</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Terms -->
+  <section class="section-spacing bg-pearl">
+    <div class="container">
+      <h2 class="text-center mb-8">Booking Information</h2>
+      <div class="terms-grid">
+        <div class="term-card">
+          <h3>Deposit</h3>
+          <p>A 25% deposit is required to secure your booking, with the balance due 8 weeks before arrival.</p>
+        </div>
+        <div class="term-card">
+          <h3>Cancellation</h3>
+          <p>Flexible cancellation policy available. Full details provided at time of booking.</p>
+        </div>
+        <div class="term-card">
+          <h3>Security Deposit</h3>
+          <p>A refundable security deposit of €2,000 is required prior to arrival.</p>
+        </div>
+        <div class="term-card">
+          <h3>Check-in / Check-out</h3>
+          <p>Check-in from 4pm on day of arrival. Check-out by 10am on day of departure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    title="Ready to Book?"
+    description="Contact us to check your dates and secure your Alpine escape."
+    primaryButtonText="Enquire Now"
+    primaryButtonHref="/contact"
+    secondaryButtonText="View the Chalet"
+    secondaryButtonHref="/about"
+  />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-alpine) 100%);
+    padding: var(--space-20) 0;
+    text-align: center;
+    color: white;
+  }
+  .page-hero h1 { color: white; margin-bottom: var(--space-4); }
+  .page-hero-subtitle { font-size: var(--text-xl); color: rgba(255,255,255,0.9); }
+
+  .text-slate { color: var(--color-slate); }
+  .text-center { text-align: center; }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+  @media (max-width: 768px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+  .pricing-card {
+    background: white;
+    border: 2px solid var(--color-stone);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    text-align: center;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  }
+  .pricing-card:hover {
+    border-color: var(--color-alpine);
+    box-shadow: var(--shadow-lg);
+  }
+  .pricing-card h3 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-2);
+  }
+  .dates {
+    color: var(--color-slate);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-6);
+  }
+  .price {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    color: var(--color-alpine);
+    font-weight: bold;
+  }
+  .per-week {
+    color: var(--color-slate);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-2);
+  }
+  .min-stay {
+    color: var(--color-slate);
+    font-size: var(--text-xs);
+    margin-bottom: var(--space-6);
+  }
+
+  .included-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+  }
+  @media (max-width: 768px) { .included-grid { grid-template-columns: 1fr; } }
+
+  .included-grid h2 { margin-bottom: var(--space-6); }
+
+  .included-list {
+    list-style: none;
+    padding: 0;
+  }
+  .included-list li {
+    padding: var(--space-3) 0;
+    padding-left: var(--space-6);
+    position: relative;
+    color: var(--color-charcoal);
+    border-bottom: 1px solid var(--color-stone);
+  }
+  .included-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-alpine);
+    font-weight: bold;
+  }
+  .included-list.extras li::before { content: '+'; color: var(--color-gold); }
+
+  .calendar-placeholder {
+    background: var(--color-pearl);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-16);
+  }
+  .calendar-note {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .calendar-note p {
+    color: var(--color-slate);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-4);
+  }
+  .mt-6 { margin-top: var(--space-6); }
+
+  .terms-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+  @media (max-width: 1024px) { .terms-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .terms-grid { grid-template-columns: 1fr; } }
+
+  .term-card {
+    padding: var(--space-6);
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+  }
+  .term-card h3 {
+    font-size: var(--text-lg);
+    color: var(--color-alpine);
+    margin-bottom: var(--space-3);
+  }
+  .term-card p {
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+  }
+</style>

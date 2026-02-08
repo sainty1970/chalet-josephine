@@ -1,17 +1,13 @@
 /**
  * Cloudflare Worker: Contact Form Handler
+ * Uses Resend for email delivery (free tier: 3,000 emails/month)
  *
- * Deployment instructions:
- * 1. Go to Cloudflare Dashboard → Workers & Pages → Create Worker
- * 2. Name it "chalet-josephine-contact"
- * 3. Paste this code into the editor
- * 4. Add environment variable: TO_EMAIL = your-email@example.com
- * 5. Save and deploy
- * 6. Update WORKER_URL in contact.astro with your worker URL
- *
- * Email delivery uses MailChannels (free on Cloudflare Workers).
- * You may need to add a DNS TXT record for SPF:
- *   Type: TXT, Name: @, Value: v=spf1 a mx include:relay.mailchannels.net ~all
+ * Setup:
+ * 1. Create free account at resend.com
+ * 2. Get an API key from resend.com/api-keys
+ * 3. Add environment variable RESEND_API_KEY to this Worker
+ * 4. In Resend, verify your domain (chalet-josephine.com) for best deliverability
+ *    OR use onboarding@resend.dev as the from address during testing
  */
 
 const ALLOWED_ORIGIN = 'https://www.chalet-josephine.com';
@@ -49,43 +45,47 @@ export default {
       return jsonResponse({ error: 'Invalid email address' }, 400, request);
     }
 
+    const apiKey = env.RESEND_API_KEY;
+    if (!apiKey) {
+      return jsonResponse({ error: 'Email service not configured' }, 500, request);
+    }
+
     const toEmail = env.TO_EMAIL || 'info@chalet-josephine.com';
 
-    // Send email via MailChannels
-    const emailResponse = await fetch('https://api.mailchannels.net/tx/v1/send', {
+    // Send enquiry email via Resend
+    const enquiryRes = await fetch('https://api.resend.com/emails', {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
-        personalizations: [{
-          to: [{ email: toEmail, name: 'Chalet Josephine' }],
-          reply_to: { email: data.email, name: `${data.first_name} ${data.last_name}` },
-        }],
-        from: { email: 'noreply@chalet-josephine.com', name: 'Chalet Josephine Website' },
+        from: 'Chalet Josephine <onboarding@resend.dev>',
+        to: [toEmail],
+        reply_to: data.email,
         subject: `Booking Enquiry: ${data.first_name} ${data.last_name} — ${data.arrival_date} to ${data.departure_date}`,
-        content: [{
-          type: 'text/html',
-          value: buildEmailHtml(data),
-        }],
+        html: buildEmailHtml(data),
       }),
     });
 
-    if (!emailResponse.ok) {
-      console.error('MailChannels error:', await emailResponse.text());
+    if (!enquiryRes.ok) {
+      const err = await enquiryRes.text();
+      console.error('Resend error:', err);
       return jsonResponse({ error: 'Failed to send enquiry. Please try again or contact us directly.' }, 500, request);
     }
 
     // Send confirmation to guest
-    await fetch('https://api.mailchannels.net/tx/v1/send', {
+    await fetch('https://api.resend.com/emails', {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
-        personalizations: [{ to: [{ email: data.email, name: `${data.first_name} ${data.last_name}` }] }],
-        from: { email: 'noreply@chalet-josephine.com', name: 'Chalet Josephine' },
+        from: 'Chalet Josephine <onboarding@resend.dev>',
+        to: [data.email],
         subject: 'Thank you for your enquiry — Chalet Josephine',
-        content: [{
-          type: 'text/html',
-          value: buildConfirmationHtml(data),
-        }],
+        html: buildConfirmationHtml(data),
       }),
     });
 

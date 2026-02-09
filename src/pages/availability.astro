@@ -69,16 +69,8 @@ const extras = [
   'In-house ski & boot fitting, rental & delivery',
   'In-house wellbeing services',
   'Private yoga classes',
-  'In-resort errands',
-];
-
-const conciergeExtras = [
   'Airport transfers',
-  'Lift passes',
-  'Ski lessons & guiding',
-  'Equipment hire',
-  'Winter experiences including husky rides',
-  'Summer experiences including helicopter flights',
+  'Lift passes, ski lessons & guiding',
 ];
 ---
 
@@ -157,10 +149,7 @@ const conciergeExtras = [
           <ul class="included-list extras">
             {extras.map(item => <li>{item}</li>)}
           </ul>
-          <p class="concierge-intro">Our concierge team are also on hand to organise other extras such as:</p>
-          <ul class="included-list extras">
-            {conciergeExtras.map(item => <li>{item}</li>)}
-          </ul>
+          <p class="concierge-intro">Our concierge team are also on hand to organise a range of experiences, please ask for details</p>
         </div>
       </div>
     </div>
@@ -478,11 +467,11 @@ const conciergeExtras = [
   }
   @media (max-width: 768px) { .calendar-months { grid-template-columns: 1fr; } }
 
-  .cal-month {
+  .calendar-months :global(.cal-month) {
     padding: var(--space-4);
   }
 
-  .cal-month-header {
+  .calendar-months :global(.cal-month-header) {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -490,7 +479,7 @@ const conciergeExtras = [
     padding: 0 var(--space-2);
   }
 
-  .cal-month-title {
+  .calendar-months :global(.cal-month-title) {
     font-family: var(--font-heading);
     font-size: var(--text-2xl);
     font-weight: var(--font-weight-semibold);
@@ -499,7 +488,7 @@ const conciergeExtras = [
     flex: 1;
   }
 
-  .cal-nav-btn {
+  .calendar-months :global(.cal-nav-btn) {
     width: 36px;
     height: 36px;
     border: none;
@@ -515,21 +504,21 @@ const conciergeExtras = [
     line-height: 1;
   }
 
-  .cal-nav-btn:hover {
+  .calendar-months :global(.cal-nav-btn:hover) {
     color: var(--color-alpine);
   }
 
-  .cal-nav-spacer {
+  .calendar-months :global(.cal-nav-spacer) {
     width: 36px;
   }
 
-  .cal-grid {
+  .calendar-months :global(.cal-grid) {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     row-gap: var(--space-4);
   }
 
-  .cal-day-name {
+  .calendar-months :global(.cal-day-name) {
     text-align: center;
     font-size: var(--text-sm);
     color: var(--color-slate);
@@ -539,7 +528,7 @@ const conciergeExtras = [
     margin-bottom: var(--space-2);
   }
 
-  .cal-day {
+  .calendar-months :global(.cal-day) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -550,29 +539,29 @@ const conciergeExtras = [
     transition: background var(--transition-base);
   }
 
-  .cal-day.empty { background: transparent; }
+  .calendar-months :global(.cal-day.empty) { background: transparent; }
 
-  .cal-day.available {
+  .calendar-months :global(.cal-day.available) {
     color: var(--color-charcoal);
     font-weight: var(--font-weight-medium);
   }
 
-  .cal-day.booked {
+  .calendar-months :global(.cal-day.booked) {
     color: #dc2626;
     text-decoration: line-through;
     text-decoration-thickness: 1.5px;
   }
 
-  .cal-day.provisional {
+  .calendar-months :global(.cal-day.provisional) {
     color: var(--color-gold);
     font-style: italic;
   }
 
-  .cal-day.past {
+  .calendar-months :global(.cal-day.past) {
     color: #d1d5db;
   }
 
-  .cal-day.today {
+  .calendar-months :global(.cal-day.today) {
     font-weight: bold;
     color: var(--color-alpine);
     background: rgba(45, 80, 100, 0.08);

@@ -151,19 +151,13 @@ const extras = [
       <p class="text-center text-slate mb-12">Browse availability for the coming months</p>
 
       <div class="calendar-wrapper">
+        <div class="calendar-months" id="calendar-months"></div>
+
         <div class="calendar-legend">
           <span class="legend-item"><span class="legend-dot available"></span> Available</span>
           <span class="legend-item"><span class="legend-dot booked"></span> Booked</span>
           <span class="legend-item"><span class="legend-dot provisional"></span> Provisional</span>
         </div>
-
-        <div class="calendar-nav">
-          <button class="cal-btn" id="cal-prev">‹</button>
-          <h3 id="cal-heading"></h3>
-          <button class="cal-btn" id="cal-next">›</button>
-        </div>
-
-        <div class="calendar-months" id="calendar-months"></div>
 
         <div class="calendar-cta">
           <p>To enquire about specific dates, contact us directly:</p>
@@ -218,7 +212,7 @@ const extras = [
   ];
 
   const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  const DAY_NAMES = ['Mo','Tu','We','Th','Fr','Sa','Su'];
+  const DAY_NAMES = ['M','T','W','T','F','S','S'];
 
   let viewYear = new Date().getFullYear();
   let viewMonth = new Date().getMonth();
@@ -235,22 +229,32 @@ const extras = [
     return 'available';
   }
 
-  function renderMonth(year: number, month: number): string {
+  function renderMonth(year: number, month: number, showNav: boolean = false): string {
     const firstDay = new Date(year, month, 1);
     const lastDay = new Date(year, month + 1, 0);
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    // Monday-first: getDay() returns 0=Sun, adjust
     const startDow = (firstDay.getDay() + 6) % 7;
 
     let html = `<div class="cal-month">`;
+    html += `<div class="cal-month-header">`;
+    if (showNav) {
+      html += `<button class="cal-nav-btn" id="cal-prev" aria-label="Previous month">‹</button>`;
+    } else {
+      html += `<span class="cal-nav-spacer"></span>`;
+    }
     html += `<div class="cal-month-title">${MONTH_NAMES[month]} ${year}</div>`;
+    if (showNav) {
+      html += `<button class="cal-nav-btn" id="cal-next" aria-label="Next month">›</button>`;
+    } else {
+      html += `<span class="cal-nav-spacer"></span>`;
+    }
+    html += `</div>`;
     html += `<div class="cal-grid">`;
 
     DAY_NAMES.forEach(d => { html += `<div class="cal-day-name">${d}</div>`; });
 
-    // Empty cells before first day
     for (let i = 0; i < startDow; i++) {
       html += `<div class="cal-day empty"></div>`;
     }
@@ -267,29 +271,26 @@ const extras = [
   }
 
   function render() {
-    const heading = document.getElementById('cal-heading');
     const container = document.getElementById('calendar-months');
-    if (!heading || !container) return;
+    if (!container) return;
 
-    // Show current month and next month
     const m1 = { year: viewYear, month: viewMonth };
     const m2 = viewMonth === 11
       ? { year: viewYear + 1, month: 0 }
       : { year: viewYear, month: viewMonth + 1 };
 
-    heading.textContent = `${MONTH_NAMES[m1.month]} – ${MONTH_NAMES[m2.month]} ${m2.year}`;
-    container.innerHTML = renderMonth(m1.year, m1.month) + renderMonth(m2.year, m2.month);
+    container.innerHTML = renderMonth(m1.year, m1.month, true) + renderMonth(m2.year, m2.month, false);
+
+    document.getElementById('cal-prev')?.addEventListener('click', () => {
+      if (viewMonth === 0) { viewMonth = 11; viewYear--; } else { viewMonth--; }
+      render();
+    });
+
+    document.getElementById('cal-next')?.addEventListener('click', () => {
+      if (viewMonth === 11) { viewMonth = 0; viewYear++; } else { viewMonth++; }
+      render();
+    });
   }
-
-  document.getElementById('cal-prev')?.addEventListener('click', () => {
-    if (viewMonth === 0) { viewMonth = 11; viewYear--; } else { viewMonth--; }
-    render();
-  });
-
-  document.getElementById('cal-next')?.addEventListener('click', () => {
-    if (viewMonth === 11) { viewMonth = 0; viewYear++; } else { viewMonth++; }
-    render();
-  });
 
   render();
 </script>
@@ -431,18 +432,132 @@ const extras = [
   .included-list.extras li::before { content: '+'; color: var(--color-gold); }
 
   .calendar-wrapper {
-    background: var(--color-pearl);
+    background: white;
     border-radius: var(--radius-2xl);
     padding: var(--space-8);
+    border: 1px solid var(--color-stone);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .calendar-months {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    margin-bottom: var(--space-8);
+  }
+  @media (max-width: 768px) { .calendar-months { grid-template-columns: 1fr; } }
+
+  .cal-month {
+    padding: var(--space-4);
+  }
+
+  .cal-month-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-8);
+    padding: 0 var(--space-2);
+  }
+
+  .cal-month-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-charcoal);
+    text-align: center;
+    flex: 1;
+  }
+
+  .cal-nav-btn {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: none;
+    font-size: var(--text-2xl);
+    cursor: pointer;
+    color: var(--color-charcoal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--transition-base);
+    font-family: var(--font-body);
+    line-height: 1;
+  }
+
+  .cal-nav-btn:hover {
+    color: var(--color-alpine);
+  }
+
+  .cal-nav-spacer {
+    width: 36px;
+  }
+
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    row-gap: var(--space-4);
+  }
+
+  .cal-day-name {
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+    padding-bottom: var(--space-4);
+    font-weight: var(--font-weight-medium);
+    border-bottom: 1px solid var(--color-stone);
+    margin-bottom: var(--space-2);
+  }
+
+  .cal-day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-base);
+    padding: var(--space-2) 0;
+    cursor: default;
+    border-radius: var(--radius-md);
+    transition: background var(--transition-base);
+  }
+
+  .cal-day.empty { background: transparent; }
+
+  .cal-day.available {
+    color: var(--color-charcoal);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .cal-day.booked {
+    color: #dc2626;
+    text-decoration: line-through;
+    text-decoration-thickness: 1.5px;
+  }
+
+  .cal-day.provisional {
+    color: var(--color-gold);
+    font-style: italic;
+  }
+
+  .cal-day.past {
+    color: #d1d5db;
+  }
+
+  .cal-day.today {
+    font-weight: bold;
+    color: var(--color-alpine);
+    background: rgba(45, 80, 100, 0.08);
+    border-radius: var(--radius-md);
   }
 
   .calendar-legend {
     display: flex;
-    gap: var(--space-6);
+    gap: var(--space-8);
     justify-content: center;
     margin-bottom: var(--space-6);
     flex-wrap: wrap;
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-stone);
   }
+
   .legend-item {
     display: flex;
     align-items: center;
@@ -450,95 +565,20 @@ const extras = [
     font-size: var(--text-sm);
     color: var(--color-slate);
   }
+
   .legend-dot {
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
   }
-  .legend-dot.available { background: #10b981; }
-  .legend-dot.booked { background: #ef4444; }
-  .legend-dot.provisional { background: #f59e0b; }
 
-  .calendar-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-6);
-    margin-bottom: var(--space-6);
-  }
-  .calendar-nav h3 {
-    font-size: var(--text-xl);
-    min-width: 200px;
-    text-align: center;
-  }
-  .cal-btn {
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--color-stone);
-    background: white;
-    border-radius: var(--radius-full);
-    font-size: var(--text-2xl);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all var(--transition-base);
-    font-family: var(--font-body);
-    line-height: 1;
-  }
-  .cal-btn:hover {
-    border-color: var(--color-alpine);
-    color: var(--color-alpine);
-  }
-
-  .calendar-months {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-8);
-  }
-  @media (max-width: 768px) { .calendar-months { grid-template-columns: 1fr; } }
-
-  .cal-month { background: white; border-radius: var(--radius-xl); padding: var(--space-6); }
-  .cal-month-title {
-    font-size: var(--text-lg);
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: var(--space-4);
-    color: var(--color-charcoal);
-  }
-  .cal-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
-  }
-  .cal-day-name {
-    text-align: center;
-    font-size: var(--text-xs);
-    color: var(--color-slate);
-    padding: var(--space-1) 0;
-    font-weight: 600;
-  }
-  .cal-day {
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--text-xs);
-    border-radius: var(--radius-sm);
-    cursor: default;
-  }
-  .cal-day.empty { background: transparent; }
-  .cal-day.available { background: #d1fae5; color: #065f46; }
-  .cal-day.booked { background: #fee2e2; color: #991b1b; }
-  .cal-day.provisional { background: #fef3c7; color: #92400e; }
-  .cal-day.past { color: #d1d5db; }
-  .cal-day.today { font-weight: bold; outline: 2px solid var(--color-alpine); }
+  .legend-dot.available { background: var(--color-charcoal); }
+  .legend-dot.booked { background: #dc2626; }
+  .legend-dot.provisional { background: var(--color-gold); }
 
   .calendar-cta {
     text-align: center;
-    margin-top: var(--space-8);
-    padding-top: var(--space-6);
-    border-top: 1px solid var(--color-stone);
+    margin-top: var(--space-4);
   }
   .calendar-cta p {
     color: var(--color-slate);

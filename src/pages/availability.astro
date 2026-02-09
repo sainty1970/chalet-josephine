@@ -56,18 +56,29 @@ const included = [
   'Welcome gift',
   'Codage luxury toiletries',
   'Mid-stay towel change',
-  'End of stay cleaning',
-  'WiFi',
-  'Parking',
   'Carte d\'hote (train pass) per person',
 ];
 
 const extras = [
-  'Private chef (on request)',
-  'Ski instructor (on request)',
-  'Childcare services (on request)',
-  'Grocery pre-stocking (on request)',
-  'Ski hire and lift passes (on request)',
+  'In-house catering with a private chef',
+  'Delivery of groceries ahead of your arrival',
+  'Delivery of pre-prepared meals',
+  'Additional linen / towel change',
+  'Childcare',
+  'Private concierge driver & vehicle',
+  'In-house ski & boot fitting, rental & delivery',
+  'In-house wellbeing services',
+  'Private yoga classes',
+  'In-resort errands',
+];
+
+const conciergeExtras = [
+  'Airport transfers',
+  'Lift passes',
+  'Ski lessons & guiding',
+  'Equipment hire',
+  'Winter experiences including husky rides',
+  'Summer experiences including helicopter flights',
 ];
 ---
 
@@ -142,9 +153,13 @@ const extras = [
           </ul>
         </div>
         <div>
-          <h2>Optional Extras</h2>
+          <h2>Optional Extras (Not Included)</h2>
           <ul class="included-list extras">
             {extras.map(item => <li>{item}</li>)}
+          </ul>
+          <p class="concierge-intro">Our concierge team are also on hand to organise other extras such as:</p>
+          <ul class="included-list extras">
+            {conciergeExtras.map(item => <li>{item}</li>)}
           </ul>
         </div>
       </div>
@@ -437,6 +452,15 @@ const extras = [
     font-weight: bold;
   }
   .included-list.extras li::before { content: '+'; color: var(--color-gold); }
+
+  .concierge-intro {
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-4);
+    color: var(--color-charcoal);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+  }
 
   .calendar-wrapper {
     background: white;

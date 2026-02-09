@@ -6,25 +6,22 @@
 
 const reviews = [
   {
-    name: 'Sarah M.',
-    location: 'London, UK',
+    name: 'Bassam A.',
     rating: 5,
-    text: 'Absolutely stunning chalet! The views of Mont Blanc are breathtaking, and every detail has been thoughtfully considered. Perfect for our family ski holiday.',
-    date: 'January 2026'
+    text: 'We had a wonderful stay at Chalet Josephine. The place is beautifully designed with a high-tech, high-quality feel. Special thanks to the concierge team for being exceptionally helpful and flexible throughout our stay. A fantastic stay and we would happily return.',
+    date: 'November 2025'
   },
   {
-    name: 'Thomas B.',
-    location: 'Geneva, Switzerland',
+    name: 'Jose A.',
     rating: 5,
-    text: 'Exceeded all expectations. The location in Les Bois is ideal - quiet yet close to everything. The hot tub after a day on the slopes was pure bliss.',
-    date: 'December 2025'
+    text: 'We loved Chamonix and this house. The teens walked to town and we had dinners all of us together every night at the long dining table by the kitchen, with a few logs burning in the fireplace. Already discussing our 2026 Spring break at Josephine again!',
+    date: 'March 2025'
   },
   {
-    name: 'Emma & James L.',
-    location: 'Manchester, UK',
+    name: 'Rishi P.',
     rating: 5,
-    text: 'We\'ve stayed in many chalets, but Chalet Josephine stands out. Impeccably maintained, luxurious amenities, and Chamonix Prestige\'s service was exceptional.',
-    date: 'February 2026'
+    text: 'The best thing about Chalet Josephine was how effortlessly it brought our entire extended family together. Spacious enough for everyone to have their own corner, yet cozy enough to make every meal and every laugh feel intimate. The views were breathtaking, the interiors thoughtfully designed. It became part of the story we\'ll be telling for years.',
+    date: 'August 2025'
   }
 ];
 ---
@@ -49,7 +46,6 @@ const reviews = [
           <p class="review-text">"{review.text}"</p>
           <div class="review-author">
             <p class="author-name">{review.name}</p>
-            <p class="author-location">{review.location}</p>
             <p class="review-date">{review.date}</p>
           </div>
         </div>
@@ -123,12 +119,6 @@ const reviews = [
   .author-name {
     font-weight: var(--font-weight-semibold);
     color: var(--color-charcoal);
-    margin-bottom: var(--space-1);
-  }
-
-  .author-location {
-    font-size: var(--text-sm);
-    color: var(--color-slate);
     margin-bottom: var(--space-1);
   }
 

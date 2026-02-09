@@ -27,8 +27,8 @@ import CallToAction from '../components/sections/CallToAction.astro';
           <p>Managed by the prestigious Chamonix Prestige agency, every aspect of your stay is thoughtfully curated to ensure an unforgettable experience. From the moment you arrive, you are enveloped in warmth, comfort and breathtaking natural beauty.</p>
           <p>Whether you are seeking an exhilarating ski holiday, a summer Alpine adventure, or simply a restorative escape from everyday life, Chalet Josephine provides the perfect base from which to explore one of the world's most iconic mountain destinations.</p>
         </div>
-        <div class="placeholder-image tall">
-          <p>📸 Chalet Exterior</p>
+        <div>
+          <img src="/images/Summer Exterior Front Mid 1.jpg" alt="Chalet Josephine exterior" class="rounded-xl" loading="lazy" />
         </div>
       </div>
     </div>
@@ -64,42 +64,42 @@ import CallToAction from '../components/sections/CallToAction.astro';
       <h2 class="text-center mb-12">Bedrooms & Sleeping Arrangements</h2>
       <div class="rooms-grid">
         <div class="room-card">
-          <div class="placeholder-image"><p>📸 Master Suite</p></div>
+          <img src="/images/Master Bed 1.jpg" alt="Master Suite" loading="lazy" />
           <div class="room-info">
             <h3>Master Suite</h3>
             <p>King-size bed, en-suite bathroom with freestanding bath, walk-in wardrobe and private balcony with Mont Blanc views.</p>
           </div>
         </div>
         <div class="room-card">
-          <div class="placeholder-image"><p>📸 Bedroom 2</p></div>
+          <img src="/images/Bedroom 2 2.jpg" alt="Bedroom 2" loading="lazy" />
           <div class="room-info">
             <h3>Bedroom 2</h3>
             <p>King-size bed, en-suite shower room, mountain views.</p>
           </div>
         </div>
         <div class="room-card">
-          <div class="placeholder-image"><p>📸 Bedroom 3</p></div>
+          <img src="/images/Bedroom 3 2.jpg" alt="Bedroom 3" loading="lazy" />
           <div class="room-info">
             <h3>Bedroom 3</h3>
             <p>King-size bed, en-suite shower room, garden views.</p>
           </div>
         </div>
         <div class="room-card">
-          <div class="placeholder-image"><p>📸 Bedroom 4</p></div>
+          <img src="/images/Bedroom 4 4.jpg" alt="Bedroom 4" loading="lazy" />
           <div class="room-info">
             <h3>Bedroom 4</h3>
             <p>Twin beds (can be configured as super-king), shared family bathroom.</p>
           </div>
         </div>
         <div class="room-card">
-          <div class="placeholder-image"><p>📸 Bedroom 5</p></div>
+          <img src="/images/Bedroom 5 1.jpg" alt="Bedroom 5" loading="lazy" />
           <div class="room-info">
             <h3>Bedroom 5</h3>
             <p>Twin beds, shared family bathroom.</p>
           </div>
         </div>
         <div class="room-card">
-          <div class="placeholder-image"><p>📸 Bedroom 6</p></div>
+          <img src="/images/Bunk Room 1.jpg" alt="Bedroom 6 - Bunk room" loading="lazy" />
           <div class="room-info">
             <h3>Bedroom 6</h3>
             <p>Bunk beds (ideal for children), shared family bathroom.</p>
@@ -113,7 +113,9 @@ import CallToAction from '../components/sections/CallToAction.astro';
   <section class="section-spacing bg-pearl">
     <div class="container">
       <div class="two-col reverse">
-        <div class="placeholder-image tall"><p>📸 Living Room</p></div>
+        <div>
+          <img src="/images/Salon 1.jpg" alt="Main living room" class="rounded-xl" loading="lazy" />
+        </div>
         <div>
           <h2>Living & Entertaining</h2>
           <p>The open-plan living and dining area is the heart of Chalet Josephine. Soaring ceilings, exposed beams, and floor-to-ceiling windows frame spectacular views of the mountains, while the central fireplace creates an irresistible focal point for après-ski gatherings.</p>
@@ -309,6 +311,25 @@ import CallToAction from '../components/sections/CallToAction.astro';
     border-radius: var(--radius-xl);
     overflow: hidden;
     box-shadow: var(--shadow-md);
+  }
+
+  .room-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+
+  .two-col img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  .rounded-xl {
+    border-radius: var(--radius-xl);
   }
 
   .room-info {

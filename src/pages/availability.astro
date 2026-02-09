@@ -89,10 +89,11 @@ const extras = [
   </section>
 
   <!-- Pricing Table -->
-  <section class="section-spacing">
+  <section class="section-spacing section-pricing">
     <div class="container">
       <h2 class="text-center mb-4">Seasonal Rates</h2>
-      <p class="text-center text-slate mb-12">Prices for the entire chalet (up to 14 guests) &middot; Minimum stay 4 nights</p>
+      <p class="text-center text-slate">Prices for the entire chalet (up to 14 guests) &middot; Minimum stay 4 nights</p>
+      <div class="mb-12"></div>
 
       <div class="pricing-table-wrapper">
         <table class="pricing-table">
@@ -135,7 +136,7 @@ const extras = [
   </section>
 
   <!-- What's Included -->
-  <section class="section-spacing bg-pearl">
+  <section class="section-spacing section-included bg-pearl">
     <div class="container">
       <div class="included-grid">
         <div>
@@ -156,7 +157,7 @@ const extras = [
   </section>
 
   <!-- Availability Calendar -->
-  <section class="section-spacing">
+  <section class="section-spacing section-calendar">
     <div class="container">
       <h2 class="text-center mb-4">Availability Calendar</h2>
       <p class="text-center text-slate mb-12">Browse availability for the coming months</p>
@@ -179,7 +180,7 @@ const extras = [
   </section>
 
   <!-- Booking Terms -->
-  <section class="section-spacing bg-pearl">
+  <section class="section-spacing section-terms bg-pearl">
     <div class="container">
       <h2 class="text-center mb-8">Booking Information</h2>
       <div class="terms-grid">
@@ -318,6 +319,40 @@ const extras = [
 
   .text-slate { color: var(--color-slate); }
   .text-center { text-align: center; }
+
+  /* Tighter spacing between sections on this page */
+  .section-pricing {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-8);
+  }
+  .section-included {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+  .section-calendar {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+  .section-terms {
+    padding-top: var(--space-8);
+  }
+  @media (min-width: 1024px) {
+    .section-pricing {
+      padding-top: var(--space-16);
+      padding-bottom: var(--space-12);
+    }
+    .section-included {
+      padding-top: var(--space-12);
+      padding-bottom: var(--space-12);
+    }
+    .section-calendar {
+      padding-top: var(--space-12);
+      padding-bottom: var(--space-12);
+    }
+    .section-terms {
+      padding-top: var(--space-12);
+    }
+  }
 
   .pricing-table-wrapper {
     overflow-x: auto;

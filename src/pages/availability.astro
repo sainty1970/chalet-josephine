@@ -2,35 +2,46 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CallToAction from '../components/sections/CallToAction.astro';
 
-const seasons = [
+const pricingSeasons = [
   {
-    name: 'Peak Winter (Christmas & New Year)',
-    dates: 'Dec 20 – Jan 4',
-    price: '€12,000',
-    perWeek: true,
-    minStay: 7
+    season: 'Winter 2025/2026',
+    type: 'winter',
+    rows: [
+      { start: '01/12/2025', end: '16/12/2025', p4: '€6,760', p5: '€8,028', p6: '€9,126', p7: '€10,056' },
+      { start: '16/12/2025', end: '25/12/2025', p4: '€14,520', p5: '€17,243', p6: '€19,602', p7: '€21,599' },
+      { start: '26/12/2025', end: '03/01/2026', p4: '€16,380', p5: '€19,451', p6: '€22,113', p7: '€24,365' },
+      { start: '04/01/2026', end: '08/01/2026', p4: '€9,720', p5: '€11,543', p6: '€13,122', p7: '€14,459' },
+      { start: '09/01/2026', end: '06/02/2026', p4: '€7,500', p5: '€8,906', p6: '€10,125', p7: '€11,156' },
+      { start: '07/02/2026', end: '08/03/2026', p4: '€9,720', p5: '€11,543', p6: '€13,122', p7: '€14,459' },
+      { start: '09/03/2026', end: '07/04/2026', p4: '€7,500', p5: '€8,906', p6: '€10,125', p7: '€11,156' },
+      { start: '08/04/2026', end: '30/04/2026', p4: '€6,760', p5: '€8,028', p6: '€9,126', p7: '€10,056' },
+    ]
   },
   {
-    name: 'High Winter (February Half Term)',
-    dates: 'Feb 14 – Feb 28',
-    price: '€10,000',
-    perWeek: true,
-    minStay: 7
+    season: 'Summer 2026',
+    type: 'summer',
+    rows: [
+      { start: '01/05/2026', end: '02/06/2026', p4: '€6,180', p5: '€7,339', p6: '€8,343', p7: '€9,193' },
+      { start: '03/06/2026', end: '23/06/2026', p4: '€6,340', p5: '€7,529', p6: '€8,559', p7: '€9,431' },
+      { start: '24/06/2026', end: '18/08/2026', p4: '€6,500', p5: '€7,719', p6: '€8,775', p7: '€9,669' },
+      { start: '19/08/2026', end: '01/09/2026', p4: '€6,760', p5: '€8,028', p6: '€9,126', p7: '€10,056' },
+      { start: '02/09/2026', end: '15/09/2026', p4: '€6,340', p5: '€7,529', p6: '€8,559', p7: '€9,431' },
+      { start: '16/09/2026', end: '30/11/2026', p4: '€6,180', p5: '€7,339', p6: '€8,343', p7: '€9,193' },
+    ]
   },
   {
-    name: 'Mid Winter',
-    dates: 'Jan 5 – Feb 13 & Mar 1 – Mar 31',
-    price: '€7,500',
-    perWeek: true,
-    minStay: 7
-  },
-  {
-    name: 'Summer',
-    dates: 'Jun 15 – Sep 15',
-    price: '€5,000',
-    perWeek: true,
-    minStay: 7
-  },
+    season: 'Winter 2026/2027',
+    type: 'winter',
+    rows: [
+      { start: '01/12/2026', end: '17/12/2026', p4: '€6,960', p5: '€8,265', p6: '€9,396', p7: '€10,353' },
+      { start: '18/12/2026', end: '25/12/2026', p4: '€14,960', p5: '€17,765', p6: '€20,196', p7: '€22,253' },
+      { start: '26/12/2026', end: '02/01/2027', p4: '€16,880', p5: '€20,045', p6: '€22,788', p7: '€25,109' },
+      { start: '03/01/2027', end: '05/02/2027', p4: '€7,720', p5: '€9,168', p6: '€10,422', p7: '€11,484' },
+      { start: '06/02/2027', end: '07/03/2027', p4: '€10,000', p5: '€11,875', p6: '€13,500', p7: '€14,875' },
+      { start: '08/03/2027', end: '06/04/2027', p4: '€7,720', p5: '€9,168', p6: '€10,422', p7: '€11,484' },
+      { start: '07/04/2027', end: '30/04/2027', p4: '€6,960', p5: '€8,265', p6: '€9,396', p7: '€10,353' },
+    ]
+  }
 ];
 
 const included = [
@@ -71,19 +82,44 @@ const extras = [
   <section class="section-spacing">
     <div class="container">
       <h2 class="text-center mb-4">Seasonal Rates</h2>
-      <p class="text-center text-slate mb-12">All prices are per week for the entire chalet (up to 12 guests)</p>
+      <p class="text-center text-slate mb-12">Prices for the entire chalet (up to 14 guests) &middot; Minimum stay 4 nights</p>
 
-      <div class="pricing-grid">
-        {seasons.map(season => (
-          <div class="pricing-card">
-            <h3>{season.name}</h3>
-            <p class="dates">{season.dates}</p>
-            <div class="price">{season.price}</div>
-            <p class="per-week">per week</p>
-            <p class="min-stay">Minimum {season.minStay} nights</p>
-            <a href="/contact" class="btn btn-primary">Enquire Now</a>
-          </div>
-        ))}
+      <div class="pricing-table-wrapper">
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>4 Nights</th>
+              <th>5 Nights</th>
+              <th>6 Nights</th>
+              <th>7 Nights</th>
+            </tr>
+          </thead>
+          <tbody>
+            {pricingSeasons.map(group => (
+              <>
+                <tr class={`season-header season-${group.type}`}>
+                  <td colspan="6">{group.season}</td>
+                </tr>
+                {group.rows.map((row, i) => (
+                  <tr class={`price-row ${i % 2 === 0 ? 'row-even' : 'row-odd'}`}>
+                    <td>{row.start}</td>
+                    <td>{row.end}</td>
+                    <td class="price-cell">{row.p4}</td>
+                    <td class="price-cell">{row.p5}</td>
+                    <td class="price-cell">{row.p6}</td>
+                    <td class="price-cell">{row.p7}</td>
+                  </tr>
+                ))}
+              </>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pricing-cta">
+        <a href="/contact" class="btn btn-primary">Enquire Now</a>
       </div>
     </div>
   </section>
@@ -271,49 +307,98 @@ const extras = [
   .text-slate { color: var(--color-slate); }
   .text-center { text-align: center; }
 
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-6);
-  }
-  @media (max-width: 768px) { .pricing-grid { grid-template-columns: 1fr; } }
-
-  .pricing-card {
-    background: white;
-    border: 2px solid var(--color-stone);
+  .pricing-table-wrapper {
+    overflow-x: auto;
     border-radius: var(--radius-2xl);
-    padding: var(--space-8);
-    text-align: center;
-    transition: border-color var(--transition-base), box-shadow var(--transition-base);
-  }
-  .pricing-card:hover {
-    border-color: var(--color-alpine);
     box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-stone);
   }
-  .pricing-card h3 {
-    font-size: var(--text-xl);
-    margin-bottom: var(--space-2);
-  }
-  .dates {
-    color: var(--color-slate);
+
+  .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
     font-size: var(--text-sm);
-    margin-bottom: var(--space-6);
+    min-width: 640px;
   }
-  .price {
+
+  .pricing-table thead th {
+    background: var(--color-charcoal);
+    color: white;
+    padding: var(--space-4) var(--space-4);
+    text-align: center;
     font-family: var(--font-heading);
-    font-size: var(--text-5xl);
-    color: var(--color-alpine);
-    font-weight: bold;
-  }
-  .per-week {
-    color: var(--color-slate);
     font-size: var(--text-sm);
-    margin-bottom: var(--space-2);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.03em;
+    white-space: nowrap;
   }
-  .min-stay {
-    color: var(--color-slate);
-    font-size: var(--text-xs);
-    margin-bottom: var(--space-6);
+
+  .pricing-table thead th:first-child {
+    border-radius: var(--radius-2xl) 0 0 0;
+    text-align: left;
+    padding-left: var(--space-6);
+  }
+
+  .pricing-table thead th:last-child {
+    border-radius: 0 var(--radius-2xl) 0 0;
+  }
+
+  .season-header td {
+    padding: var(--space-3) var(--space-6);
+    font-family: var(--font-heading);
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid var(--color-stone);
+  }
+
+  .season-winter td {
+    background: var(--color-alpine);
+    color: white;
+  }
+
+  .season-summer td {
+    background: var(--color-gold);
+    color: white;
+  }
+
+  .price-row td {
+    padding: var(--space-3) var(--space-4);
+    text-align: center;
+    border-bottom: 1px solid var(--color-stone);
+    color: var(--color-charcoal);
+  }
+
+  .price-row td:first-child,
+  .price-row td:nth-child(2) {
+    text-align: left;
+    padding-left: var(--space-6);
+    white-space: nowrap;
+  }
+
+  .price-cell {
+    font-weight: var(--font-weight-medium);
+    white-space: nowrap;
+  }
+
+  .row-even { background: white; }
+  .row-odd { background: var(--color-pearl); }
+
+  .price-row:hover {
+    background: rgba(45, 80, 100, 0.06);
+  }
+
+  .pricing-table tbody tr:last-child td:first-child {
+    border-radius: 0 0 0 var(--radius-2xl);
+  }
+
+  .pricing-table tbody tr:last-child td:last-child {
+    border-radius: 0 0 var(--radius-2xl) 0;
+  }
+
+  .pricing-cta {
+    text-align: center;
+    margin-top: var(--space-8);
   }
 
   .included-grid {

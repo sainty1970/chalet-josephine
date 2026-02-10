@@ -1,0 +1,220 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AreaGuideNav from '../../components/layout/AreaGuideNav.astro';
+import CallToAction from '../../components/sections/CallToAction.astro';
+---
+
+<BaseLayout
+  title="Cycling in Chamonix Mont-Blanc | Chalet Josephine Area Guide"
+  description="Road cycling, mountain biking, and e-bike adventures in Chamonix Mont-Blanc. Legendary cols, lift-accessed descents, and scenic valley rides."
+  breadcrumbs={[{ name: "Area Guide", url: "/area-guide" }, { name: "Cycling", url: "/area-guide/cycling" }]}
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Cycling</h1>
+      <p class="page-hero-subtitle">Legendary cols, epic descents, and stunning valley rides</p>
+    </div>
+  </section>
+
+  <AreaGuideNav current="/area-guide/cycling" />
+
+  <!-- Road Cycling -->
+  <section class="section-spacing">
+    <div class="container">
+      <div class="section-header">
+        <h2>Road Cycling</h2>
+        <p class="section-subtitle">
+          Iconic Alpine climbs made famous by the Tour de France
+        </p>
+      </div>
+
+      <div class="info-content">
+        <p>
+          Chamonix sits at the heart of some of the most famous road cycling terrain in the world. The
+          surrounding mountain passes — many of which feature regularly in the Tour de France — offer
+          challenging and spectacularly scenic rides for experienced cyclists. The valley floor also
+          provides excellent flat and gently rolling routes ideal for warming up or more relaxed rides.
+        </p>
+      </div>
+
+      <div class="routes-grid">
+        <div class="route-card">
+          <h3>Col de la Forclaz</h3>
+          <p class="route-meta">Distance: 30km return from Chamonix | Climb: 800m | Gradient: 5–8%</p>
+          <p>A classic cross-border climb into Switzerland via Vallorcine and the Trient valley. The descent into the Rhône valley offers panoramic views of the Valais Alps. A beautiful ride with moderate traffic.</p>
+        </div>
+        <div class="route-card">
+          <h3>Col des Montets</h3>
+          <p class="route-meta">Distance: 20km return from Chamonix | Climb: 450m | Gradient: 4–6%</p>
+          <p>A gentler climb through the upper Chamonix valley to Vallorcine, passing through the Aiguilles Rouges nature reserve. Stunning views throughout, with the option to continue over the Col de la Forclaz for a longer ride.</p>
+        </div>
+        <div class="route-card">
+          <h3>Chamonix to Megève via Col des Aravis</h3>
+          <p class="route-meta">Distance: 85km loop | Climb: 1,800m | Gradient: varies</p>
+          <p>An epic day ride descending through the Arve valley before climbing the famous Col des Aravis, a Tour de France favourite. The loop returns via Megève and Saint-Gervais with several iconic climbs and breathtaking Alpine scenery throughout.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mountain Biking -->
+  <section class="section-spacing bg-pearl">
+    <div class="container">
+      <div class="section-header">
+        <h2>Mountain Biking</h2>
+        <p class="section-subtitle">
+          Lift-accessed descents and cross-country trails for all levels
+        </p>
+      </div>
+
+      <div class="info-content">
+        <p>
+          In summer, the Chamonix ski lifts reopen for mountain bikers, giving access to an extensive
+          network of downhill and enduro trails. The Chamonix Bike Park, centred on the Les Houches
+          and Brévent-Flégère areas, offers trails from green (beginner) to black (expert), with over
+          30 marked routes and 80km of purpose-built singletrack.
+        </p>
+        <p>
+          Cross-country riders will find excellent trails along the valley floor and through the surrounding
+          forests, while more adventurous riders can tackle technical Alpine singletrack with dramatic
+          exposure and stunning views. Bike hire, including full-suspension enduro and downhill bikes,
+          is available from several shops in Chamonix, and our concierge team can arrange delivery
+          directly to the chalet.
+        </p>
+      </div>
+
+      <div class="routes-grid">
+        <div class="route-card">
+          <h3>Vallorcine Enduro Loop</h3>
+          <p class="route-meta">Distance: 20km | Descent: 900m | Difficulty: Intermediate</p>
+          <p>Take the Le Tour gondola and ride a mix of purpose-built singletrack and natural trails through forests and Alpine meadows back to Vallorcine. Flowing trails with optional technical sections.</p>
+        </div>
+        <div class="route-card">
+          <h3>Les Houches Bike Park</h3>
+          <p class="route-meta">Trails: 15+ marked runs | Descent: up to 1,000m | Difficulty: All levels</p>
+          <p>The main Chamonix bike park with trails from gentle green runs to demanding black descents. Lift-accessed via the Bellevue gondola, it's perfect for a full day of riding with runs to suit every ability.</p>
+        </div>
+        <div class="route-card">
+          <h3>Petit Balcon Nord Trail</h3>
+          <p class="route-meta">Distance: 15km | Elevation: 400m | Difficulty: Intermediate</p>
+          <p>A scenic cross-country trail along the north side of the valley, weaving through forests with views of the Aiguilles Rouges. Rideable from the doorstep of Chalet Josephine, this is a perfect warm-up ride.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- E-Bikes -->
+  <section class="section-spacing">
+    <div class="container">
+      <div class="section-header">
+        <h2>E-Bikes</h2>
+        <p class="section-subtitle">
+          Explore further with electric-assisted cycling
+        </p>
+      </div>
+
+      <div class="info-content">
+        <p>
+          E-bikes have opened up the Chamonix valley to a much wider range of cyclists. With electric
+          assistance, the famous cols and mountain trails become accessible to those who might find
+          the pure cycling versions too demanding. High-quality e-bikes — both road and mountain — are
+          available for hire from shops in Chamonix, and our concierge team can arrange delivery to
+          the chalet.
+        </p>
+        <p>
+          Popular e-bike rides include the valley floor route to Argentière and Vallorcine, the climb
+          to the Col des Montets, and forest trails through the Aiguilles Rouges nature reserve. For
+          a truly memorable experience, guided e-bike tours take you to viewpoints and trails you might
+          never discover on your own.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    title="Ready to Ride?"
+    description="Book Chalet Josephine and explore Chamonix on two wheels."
+    primaryButtonText="Check Availability"
+    primaryButtonHref="/availability"
+    secondaryButtonText="Contact Us"
+    secondaryButtonHref="/contact"
+  />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-alpine) 100%);
+    padding: var(--space-20) 0;
+    text-align: center;
+    color: white;
+  }
+  .page-hero h1 { color: white; margin-bottom: var(--space-4); }
+  .page-hero-subtitle { font-size: var(--text-xl); color: rgba(255,255,255,0.9); }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+  .section-header h2 {
+    font-size: var(--text-4xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-4);
+  }
+  .section-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-slate);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .info-content {
+    max-width: 800px;
+    margin: 0 auto var(--space-12);
+  }
+  .info-content p {
+    font-size: var(--text-base);
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+  .info-content p:last-child { margin-bottom: 0; }
+
+  .routes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .route-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--color-alpine);
+  }
+  .bg-pearl .route-card { background: white; }
+
+  .route-card h3 {
+    font-size: var(--text-xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-2);
+  }
+  .route-meta {
+    font-size: var(--text-sm);
+    color: var(--color-alpine);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--space-4);
+  }
+  .route-card p:last-child {
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 640px) {
+    .section-header h2 { font-size: var(--text-3xl); }
+  }
+</style>

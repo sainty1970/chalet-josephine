@@ -1,0 +1,84 @@
+---
+/**
+ * Area Guide Sub-Navigation
+ * Horizontal category navigation for area guide pages
+ */
+
+interface Props {
+  current?: string;
+}
+
+const { current = '' } = Astro.props;
+
+const categories = [
+  { label: 'Overview', href: '/area-guide' },
+  { label: 'Skiing / Winter Sports', href: '/area-guide/skiing' },
+  { label: 'Hiking', href: '/area-guide/hiking' },
+  { label: 'Cycling', href: '/area-guide/cycling' },
+  { label: 'Golf & Other', href: '/area-guide/golf' },
+  { label: 'Sightseeing', href: '/area-guide/sightseeing' },
+  { label: 'Restaurants & Bars', href: '/area-guide/restaurants' },
+  { label: 'Transport', href: '/area-guide/transport' },
+];
+---
+
+<nav class="area-guide-nav" aria-label="Area guide categories">
+  <div class="container">
+    <ul class="area-guide-nav-list">
+      {categories.map(cat => (
+        <li>
+          <a
+            href={cat.href}
+            class:list={['area-guide-nav-link', { active: current === cat.href }]}
+          >
+            {cat.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .area-guide-nav {
+    background: white;
+    border-bottom: 1px solid var(--color-stone);
+  }
+
+  .area-guide-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: var(--space-1);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .area-guide-nav-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .area-guide-nav-link {
+    display: block;
+    padding: var(--space-4) var(--space-5);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-slate);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color var(--transition-base), border-color var(--transition-base);
+  }
+
+  .area-guide-nav-link:hover {
+    color: var(--color-charcoal);
+    border-bottom-color: var(--color-stone);
+  }
+
+  .area-guide-nav-link.active {
+    color: var(--color-alpine);
+    border-bottom-color: var(--color-alpine);
+  }
+</style>

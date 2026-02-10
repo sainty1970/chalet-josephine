@@ -1,0 +1,281 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AreaGuideNav from '../../components/layout/AreaGuideNav.astro';
+import CallToAction from '../../components/sections/CallToAction.astro';
+---
+
+<BaseLayout
+  title="Sightseeing in Chamonix Mont-Blanc | Chalet Josephine Area Guide"
+  description="Aiguille du Midi, Mer de Glace, and the most breathtaking views in the Alps. Essential sightseeing in Chamonix Mont-Blanc from Chalet Josephine."
+  breadcrumbs={[{ name: "Area Guide", url: "/area-guide" }, { name: "Sightseeing", url: "/area-guide/sightseeing" }]}
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Sightseeing</h1>
+      <p class="page-hero-subtitle">The most breathtaking views in the Alps</p>
+    </div>
+  </section>
+
+  <AreaGuideNav current="/area-guide/sightseeing" />
+
+  <!-- Intro -->
+  <section class="section-spacing">
+    <div class="container">
+      <div class="intro-text">
+        <p>
+          Even if you never put on a pair of hiking boots, Chamonix offers an extraordinary range of
+          sightseeing experiences. The valley's cable cars, rack railways, and gondolas carry you effortlessly
+          to some of the most spectacular viewpoints in the Alps. These are experiences that stay with you
+          long after you return home — the scale, the beauty, and the drama of the Mont Blanc massif
+          seen up close are simply unforgettable.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Must-See Attractions -->
+  <section class="section-spacing bg-pearl">
+    <div class="container">
+      <div class="section-header">
+        <h2>Must-See Attractions</h2>
+        <p class="section-subtitle">
+          Unmissable experiences in the Chamonix valley
+        </p>
+      </div>
+
+      <div class="attractions-grid">
+        <div class="attraction-card featured">
+          <h3>Aiguille du Midi</h3>
+          <p class="attraction-meta">3,842m | Cable car from Chamonix centre | ~5 min from chalet</p>
+          <p>
+            The cable car to the Aiguille du Midi is one of the highest in the world, whisking you from
+            the valley floor to 3,842 metres in just 20 minutes. At the summit, a series of terraces and
+            viewing platforms offer staggering 360-degree views across the French, Swiss, and Italian Alps.
+            On a clear day, you can see the Matterhorn, Monte Rosa, and the Gran Paradiso. The famous
+            "Step into the Void" glass box extends out over a 1,000-metre vertical drop — not for the
+            faint-hearted. In winter, this is also the departure point for the legendary Vallée Blanche
+            ski descent.
+          </p>
+        </div>
+
+        <div class="attraction-card featured">
+          <h3>Mer de Glace & Montenvers</h3>
+          <p class="attraction-meta">1,913m | Rack railway from Chamonix | ~10 min from chalet</p>
+          <p>
+            France's largest glacier — 7km long and up to 200m deep — is reached by the historic
+            Montenvers rack railway, which has been carrying visitors up the mountain since 1909. At the
+            top, a viewing platform looks out over the glacier, and a gondola descends to an ice cave
+            carved fresh into the glacier each year. The Glaciorium museum explains the formation and
+            retreat of Alpine glaciers. A fascinating and sobering visit that puts climate change into
+            vivid perspective.
+          </p>
+        </div>
+
+        <div class="attraction-card">
+          <h3>Le Brévent</h3>
+          <p class="attraction-meta">2,525m | Cable car from Les Bois | Walk from chalet</p>
+          <p>
+            The Brévent cable car departs just a short walk from Chalet Josephine and ascends to 2,525m,
+            offering perhaps the finest frontal view of the entire Mont Blanc massif. The summit
+            restaurant terrace is a spectacular spot for lunch, and on a clear day the panorama stretches
+            from the Aiguille Verte to the Bossons Glacier. In summer, combine with a walk along the
+            Grand Balcon Sud.
+          </p>
+        </div>
+
+        <div class="attraction-card">
+          <h3>Tramway du Mont-Blanc</h3>
+          <p class="attraction-meta">2,372m | Departs from Saint-Gervais | ~20 min from chalet</p>
+          <p>
+            France's highest rack railway climbs from Saint-Gervais to the Nid d'Aigle (Eagle's Nest)
+            at 2,372m, the starting point for mountaineers attempting the summit of Mont Blanc. Even if
+            you don't plan to climb, the journey itself is spectacular, passing through forests, Alpine
+            meadows, and snowfields with views that become increasingly dramatic as you gain altitude.
+          </p>
+        </div>
+
+        <div class="attraction-card">
+          <h3>Lac Blanc Viewpoint</h3>
+          <p class="attraction-meta">2,352m | Cable car + walk | Moderate hike required</p>
+          <p>
+            While reaching Lac Blanc requires a moderate hike (see our Hiking guide), the destination
+            is so visually stunning that it deserves mention as a sightseeing highlight. The turquoise
+            mountain lake perfectly mirrors the Mont Blanc range, and the refuge serves excellent meals
+            on its terrace. One of the most photographed locations in the Alps.
+          </p>
+        </div>
+
+        <div class="attraction-card">
+          <h3>Chamonix Town Centre</h3>
+          <p class="attraction-meta">1,035m | Valley floor | ~15 min walk from chalet</p>
+          <p>
+            Chamonix itself is a vibrant and charming Alpine town well worth exploring on foot. The
+            pedestrianised centre is filled with boutiques, equipment shops, cafés, and restaurants.
+            The Alpine Museum tells the fascinating story of mountaineering in the region, while the
+            weekly market (Saturday mornings) offers local produce, cheeses, and artisan goods.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Day Trips -->
+  <section class="section-spacing">
+    <div class="container">
+      <div class="section-header">
+        <h2>Day Trips</h2>
+        <p class="section-subtitle">
+          Explore beyond the Chamonix valley
+        </p>
+      </div>
+
+      <div class="trips-grid">
+        <div class="trip-card">
+          <h3>Courmayeur, Italy</h3>
+          <p class="trip-meta">30 minutes via the Mont Blanc Tunnel</p>
+          <p>
+            Cross into Italy for a day of Italian charm, excellent food, and spectacular views of the
+            south face of Mont Blanc. The SkyWay Monte Bianco cable car on the Italian side offers a
+            different but equally stunning perspective. Don't miss the chance to enjoy a long Italian
+            lunch in the Courmayeur old town.
+          </p>
+        </div>
+        <div class="trip-card">
+          <h3>Annecy</h3>
+          <p class="trip-meta">1 hour 30 minutes by car</p>
+          <p>
+            Known as the "Venice of the Alps", Annecy's stunning lake and medieval old town make it a
+            perfect day trip. Swim in the crystal-clear lake, explore the colourful canal-side streets,
+            and enjoy the excellent restaurants. One of the most beautiful small towns in France.
+          </p>
+        </div>
+        <div class="trip-card">
+          <h3>Geneva, Switzerland</h3>
+          <p class="trip-meta">1 hour 15 minutes by car</p>
+          <p>
+            A cosmopolitan city on the shores of Lac Léman, Geneva offers world-class museums, luxury
+            shopping, international cuisine, and the famous Jet d'Eau fountain. An easy day trip with
+            plenty to fill a full day of exploring.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    title="Ready to See It All?"
+    description="Book Chalet Josephine and experience the most spectacular scenery in the Alps."
+    primaryButtonText="Check Availability"
+    primaryButtonHref="/availability"
+    secondaryButtonText="Contact Us"
+    secondaryButtonHref="/contact"
+  />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-alpine) 100%);
+    padding: var(--space-20) 0;
+    text-align: center;
+    color: white;
+  }
+  .page-hero h1 { color: white; margin-bottom: var(--space-4); }
+  .page-hero-subtitle { font-size: var(--text-xl); color: rgba(255,255,255,0.9); }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+  .section-header h2 {
+    font-size: var(--text-4xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-4);
+  }
+  .section-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-slate);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .intro-text {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .intro-text p {
+    font-size: var(--text-lg);
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+    text-align: center;
+  }
+
+  .attractions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+  @media (max-width: 1024px) { .attractions-grid { grid-template-columns: 1fr; } }
+
+  .attraction-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--color-stone);
+    transition: border-color var(--transition-base);
+  }
+  .attraction-card:hover { border-color: var(--color-alpine); }
+  .attraction-card.featured { border-color: var(--color-alpine); }
+
+  .attraction-card h3 {
+    font-size: var(--text-xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-2);
+  }
+  .attraction-meta {
+    font-size: var(--text-sm);
+    color: var(--color-alpine);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--space-4);
+  }
+  .attraction-card p:last-child {
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+    margin-bottom: 0;
+  }
+
+  .trips-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+  @media (max-width: 1024px) { .trips-grid { grid-template-columns: 1fr; } }
+
+  .trip-card {
+    background: var(--color-pearl);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+  }
+  .trip-card h3 {
+    font-size: var(--text-xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-2);
+  }
+  .trip-meta {
+    font-size: var(--text-sm);
+    color: var(--color-alpine);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--space-4);
+  }
+  .trip-card p:last-child {
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 640px) {
+    .section-header h2 { font-size: var(--text-3xl); }
+  }
+</style>

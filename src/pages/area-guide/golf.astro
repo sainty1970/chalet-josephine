@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AreaGuideNav from '../../components/layout/AreaGuideNav.astro';
+import CallToAction from '../../components/sections/CallToAction.astro';
+---
+
+<BaseLayout
+  title="Golf & Other Activities in Chamonix | Chalet Josephine Area Guide"
+  description="Golf, paragliding, spa & wellness, climbing, and more activities in Chamonix Mont-Blanc. Year-round adventure and relaxation from Chalet Josephine."
+  breadcrumbs={[{ name: "Area Guide", url: "/area-guide" }, { name: "Golf & Other", url: "/area-guide/golf" }]}
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Golf & Other Activities</h1>
+      <p class="page-hero-subtitle">Year-round adventure and relaxation in the Alps</p>
+    </div>
+  </section>
+
+  <AreaGuideNav current="/area-guide/golf" />
+
+  <!-- Golf -->
+  <section class="section-spacing">
+    <div class="container">
+      <div class="section-header">
+        <h2>Golf</h2>
+        <p class="section-subtitle">
+          Spectacular Alpine golf with Mont Blanc as your backdrop
+        </p>
+      </div>
+
+      <div class="info-content">
+        <p>
+          The Chamonix Golf Club is one of the most dramatically situated courses in Europe. Set on the
+          valley floor with the towering peaks of the Mont Blanc massif rising on all sides, it offers an
+          unforgettable 18-hole experience. The par-72 course stretches over 6,100 metres through mature
+          parkland with the Arve river meandering through several holes.
+        </p>
+        <p>
+          The course is open from May to October, with the summer months offering the best conditions and
+          the longest daylight hours. Green fees are reasonable by Alpine standards, and the clubhouse
+          terrace is a wonderful spot for a post-round drink. Equipment hire is available, and our
+          concierge team can book tee times in advance. The course is approximately 10 minutes by car
+          from Chalet Josephine.
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="info-card">
+          <h3>Chamonix Golf Club</h3>
+          <ul>
+            <li>18 holes, par 72</li>
+            <li>6,100m course</li>
+            <li>Open May – October</li>
+            <li>~10 min from chalet</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>Nearby Courses</h3>
+          <ul>
+            <li>Megève Golf Club (30 min)</li>
+            <li>Golf de Flaine (45 min)</li>
+            <li>Verbier Golf (1 hour via tunnel)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paragliding -->
+  <section class="section-spacing bg-pearl">
+    <div class="container">
+      <div class="section-header">
+        <h2>Paragliding</h2>
+        <p class="section-subtitle">
+          Soar above the valley with breathtaking views of Mont Blanc
+        </p>
+      </div>
+
+      <div class="info-content">
+        <p>
+          A tandem paraglide over the Chamonix valley is one of the most exhilarating experiences
+          available in the Alps. Taking off from Planpraz (accessible by the Brévent cable car, a
+          short walk from Chalet Josephine), you soar above the valley floor with the entire Mont
+          Blanc massif spread before you. Flights last 15–30 minutes and are suitable for complete
+          beginners — your qualified pilot handles everything while you enjoy the view.
+        </p>
+        <p>
+          Flights operate from spring through autumn, weather permitting, and can be booked through
+          our concierge team. It's an incredible way to see the valley from a completely new perspective
+          and makes for unforgettable photos and videos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spa & Wellness -->
+  <section class="section-spacing">
+    <div class="container">
+      <div class="section-header">
+        <h2>Spa & Wellness</h2>
+        <p class="section-subtitle">
+          Relax and rejuvenate after a day in the mountains
+        </p>
+      </div>
+
+      <div class="info-content">
+        <p>
+          After a day of mountain adventures, there is nothing better than unwinding in Chalet Josephine's
+          private hot tub, with steam rising against the backdrop of snow-capped peaks. The chalet also
+          features a sauna for deep relaxation. For those seeking additional pampering, our concierge team
+          can arrange in-house massage therapists, private yoga sessions, and other wellbeing services
+          delivered directly to the chalet.
+        </p>
+        <p>
+          Chamonix also offers several excellent spa facilities in town. The QC Terme spa complex provides
+          a luxurious full-day spa experience with multiple pools, saunas, and treatment rooms, all with
+          stunning mountain views. Several hotel spas in the valley also welcome non-resident guests.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Climbing & Via Ferrata -->
+  <section class="section-spacing bg-pearl">
+    <div class="container">
+      <div class="section-header">
+        <h2>Climbing & Via Ferrata</h2>
+        <p class="section-subtitle">
+          From indoor walls to iconic Alpine routes
+        </p>
+      </div>
+
+      <div class="info-content">
+        <p>
+          Chamonix is the birthplace of Alpinism, and rock climbing and mountaineering remain at the
+          heart of the valley's identity. For experienced climbers, the granite walls of the Aiguilles
+          offer world-class multi-pitch routes. For those new to the sport, several via ferrata routes
+          provide a thrilling introduction — fixed cable routes equipped with ladders and bridges that
+          allow you to experience dramatic vertical terrain in safety.
+        </p>
+        <p>
+          The Parc de Loisirs des Planards offers a family-friendly via ferrata course as well as an
+          adventure ropes course and luge track. For indoor climbing, the Centre Sportif Richard Bozon
+          has an excellent climbing wall. Mountain guides can be hired for half-day or full-day climbing
+          experiences at all levels.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other Activities -->
+  <section class="section-spacing">
+    <div class="container">
+      <div class="section-header">
+        <h2>More Activities</h2>
+        <p class="section-subtitle">
+          There is never a shortage of things to do in Chamonix
+        </p>
+      </div>
+
+      <div class="activities-grid">
+        <div class="activity-card">
+          <h3>White Water Rafting</h3>
+          <p>Navigate the rapids of the Arve river with a qualified guide. Sessions run from June to September and cater to all experience levels, from gentle family floats to adrenaline-pumping white water.</p>
+        </div>
+        <div class="activity-card">
+          <h3>Trail Running</h3>
+          <p>Chamonix is the trail running capital of the world, hosting the famous UTMB ultra-marathon each August. The same trails are open to all, offering incredible running in spectacular mountain scenery.</p>
+        </div>
+        <div class="activity-card">
+          <h3>Ice Skating</h3>
+          <p>The Centre Sportif Richard Bozon features an Olympic-sized ice rink open year-round. A fun activity for all ages and a great option on a rainy day.</p>
+        </div>
+        <div class="activity-card">
+          <h3>Swimming</h3>
+          <p>The indoor pool complex in Chamonix centre offers a heated pool, children's pool, and water slides. In summer, the outdoor Piscine des Mouilles provides a refreshing alternative with mountain views.</p>
+        </div>
+        <div class="activity-card">
+          <h3>Cross-Country Skiing</h3>
+          <p>In winter, groomed cross-country trails run along the valley floor from Les Bois towards Argentière. A peaceful way to enjoy the winter landscape, and the trail starts just minutes from the chalet.</p>
+        </div>
+        <div class="activity-card">
+          <h3>Snowshoeing</h3>
+          <p>Explore the winter landscape on snowshoes, walking through snow-covered forests and meadows. Guided tours visit beautiful spots inaccessible on foot in winter. Equipment hire is readily available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    title="Ready for Adventure?"
+    description="Book Chalet Josephine and discover everything Chamonix has to offer."
+    primaryButtonText="Check Availability"
+    primaryButtonHref="/availability"
+    secondaryButtonText="Contact Us"
+    secondaryButtonHref="/contact"
+  />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-alpine) 100%);
+    padding: var(--space-20) 0;
+    text-align: center;
+    color: white;
+  }
+  .page-hero h1 { color: white; margin-bottom: var(--space-4); }
+  .page-hero-subtitle { font-size: var(--text-xl); color: rgba(255,255,255,0.9); }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+  .section-header h2 {
+    font-size: var(--text-4xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-4);
+  }
+  .section-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-slate);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .info-content {
+    max-width: 800px;
+    margin: 0 auto var(--space-12);
+  }
+  .info-content p {
+    font-size: var(--text-base);
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+  .info-content p:last-child { margin-bottom: 0; }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  @media (max-width: 768px) { .cards-grid { grid-template-columns: 1fr; } }
+
+  .info-card {
+    background: var(--color-pearl);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+  }
+  .info-card h3 {
+    font-size: var(--text-lg);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-4);
+  }
+  .info-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .info-card li {
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+    padding: var(--space-2) 0;
+    padding-left: var(--space-5);
+    position: relative;
+  }
+  .info-card li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-alpine);
+  }
+
+  .activities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+  @media (max-width: 1024px) { .activities-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .activities-grid { grid-template-columns: 1fr; } }
+
+  .activity-card {
+    background: var(--color-pearl);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+  }
+  .activity-card h3 {
+    font-size: var(--text-lg);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-3);
+  }
+  .activity-card p {
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+  }
+
+  @media (max-width: 640px) {
+    .section-header h2 { font-size: var(--text-3xl); }
+  }
+</style>

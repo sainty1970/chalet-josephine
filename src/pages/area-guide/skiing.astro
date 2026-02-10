@@ -1,0 +1,370 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AreaGuideNav from '../../components/layout/AreaGuideNav.astro';
+import CallToAction from '../../components/sections/CallToAction.astro';
+---
+
+<BaseLayout
+  title="Skiing & Winter Sports in Chamonix | Chalet Josephine Area Guide"
+  description="Complete guide to skiing in Chamonix Mont-Blanc: ski areas, ski schools, off-piste guiding, and ski touring. Plan your winter sports holiday from Chalet Josephine."
+  breadcrumbs={[{ name: "Area Guide", url: "/area-guide" }, { name: "Skiing / Winter Sports", url: "/area-guide/skiing" }]}
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Skiing & Winter Sports</h1>
+      <p class="page-hero-subtitle">World-class terrain in the shadow of Mont Blanc</p>
+    </div>
+  </section>
+
+  <AreaGuideNav current="/area-guide/skiing" />
+
+  <!-- Intro -->
+  <section class="section-spacing">
+    <div class="container">
+      <div class="intro-text">
+        <p>
+          Chamonix Mont-Blanc offers some of the most challenging and rewarding skiing in the Alps.
+          With five distinct ski areas connected by a free shuttle bus, the valley provides an incredible
+          variety of terrain — from gentle nursery slopes to legendary off-piste descents through glacial
+          landscapes. The Chamonix Le Pass gives access to all local areas, while the Mont Blanc Unlimited
+          pass extends your reach across three countries.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ski Areas -->
+  <section class="section-spacing bg-pearl">
+    <div class="container">
+      <div class="section-header">
+        <h2>Ski Areas</h2>
+        <p class="section-subtitle">
+          Five distinct areas offering terrain for every ability
+        </p>
+      </div>
+
+      <div class="ski-areas">
+        <div class="ski-area-card featured">
+          <h3>Brévent-Flégère</h3>
+          <p class="ski-distance">~3 mins by car or ~10 mins walk from Chalet Josephine</p>
+          <p>
+            The iconic Brévent-Flégère ski area offers unrivalled views of the Mont Blanc massif.
+            With 445 hectares of skiable terrain and runs ranging from gentle blue slopes to
+            challenging black runs, this area caters to all abilities. The famous "Le Brévent"
+            summit at 2,525m offers panoramic views that are simply unforgettable.
+          </p>
+          <ul class="ski-stats">
+            <li>Altitude: 1,035m – 2,525m</li>
+            <li>Runs: 44 pistes</li>
+            <li>Lifts: 24</li>
+            <li>Best for: Intermediate to advanced</li>
+          </ul>
+          <p class="ski-pass-note">Included in the Chamonix Le Pass</p>
+        </div>
+
+        <div class="ski-area-card">
+          <h3>Les Grands Montets</h3>
+          <p class="ski-distance">~10 minutes by shuttle</p>
+          <p>
+            A favourite among expert skiers, Les Grands Montets is renowned for its off-piste
+            terrain, deep powder, and long vertical descents. The Argentière glacier offers
+            some of the most exhilarating skiing in Europe.
+          </p>
+          <ul class="ski-stats">
+            <li>Altitude: 1,235m – 3,275m</li>
+            <li>Runs: 21 pistes</li>
+            <li>Best for: Advanced & expert</li>
+          </ul>
+          <p class="ski-pass-note">Included in the Chamonix Le Pass</p>
+        </div>
+
+        <div class="ski-area-card">
+          <h3>Le Tour / Vallorcine</h3>
+          <p class="ski-distance">~15 minutes by shuttle</p>
+          <p>
+            At the head of the Chamonix valley, Le Tour and neighbouring Vallorcine offer
+            sunny, open slopes ideal for intermediates and families. Le Tour's Balme area
+            provides wide cruising runs with panoramic views towards Switzerland, while
+            Vallorcine's quieter Domaine de la Vormaine is perfect for building confidence.
+          </p>
+          <ul class="ski-stats">
+            <li>Altitude: 1,453m – 2,270m</li>
+            <li>Runs: 29 pistes</li>
+            <li>Best for: Beginners & intermediates</li>
+          </ul>
+          <p class="ski-pass-note">Included in the Chamonix Le Pass</p>
+        </div>
+
+        <div class="ski-area-card">
+          <h3>Les Houches</h3>
+          <p class="ski-distance">~15 minutes by car</p>
+          <p>
+            Perfect for families and beginners, Les Houches offers quieter slopes, tree-lined
+            runs, and a relaxed atmosphere. Home to the famous Kandahar World Cup downhill race.
+          </p>
+          <ul class="ski-stats">
+            <li>Altitude: 1,000m – 1,900m</li>
+            <li>Runs: 21 pistes</li>
+            <li>Best for: Beginners & families</li>
+          </ul>
+          <p class="ski-pass-note">Included in the Chamonix Le Pass</p>
+        </div>
+
+        <div class="ski-area-card">
+          <h3>Aiguille du Midi</h3>
+          <p class="ski-distance">5 minutes from town centre</p>
+          <p>
+            The legendary Vallée Blanche off-piste route descends 24km from 3,842m through
+            glacial landscapes. An unmissable experience for any serious skier visiting Chamonix.
+          </p>
+          <ul class="ski-stats">
+            <li>Altitude: 3,842m summit</li>
+            <li>Vallée Blanche: 24km</li>
+            <li>Best for: Guided off-piste</li>
+          </ul>
+          <p class="ski-pass-note">Included in the Chamonix Le Pass</p>
+        </div>
+
+        <div class="ski-area-card mont-blanc-unlimited">
+          <h3>Mont Blanc Unlimited</h3>
+          <p class="ski-distance">The ultimate Alpine ski pass</p>
+          <p>
+            For those looking to explore beyond the Chamonix valley, the Mont Blanc Unlimited
+            pass opens up a vast network of interconnected ski areas across three countries.
+            In addition to all the Chamonix Le Pass areas, it includes access to Courmayeur
+            in Italy (via the Mont Blanc Tunnel), Verbier in Switzerland, Megève, Les Contamines,
+            and Saint-Gervais — offering over 600km of pistes and some of the most varied
+            skiing in the Alps.
+          </p>
+          <ul class="ski-stats">
+            <li>Areas: 10+ ski resorts</li>
+            <li>Pistes: 600km+</li>
+            <li>Countries: France, Italy & Switzerland</li>
+            <li>Includes: All Chamonix Le Pass areas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ski Schools -->
+  <section class="section-spacing">
+    <div class="container">
+      <div class="section-header">
+        <h2>Ski Schools</h2>
+        <p class="section-subtitle">
+          Expert instruction for all ages and abilities
+        </p>
+      </div>
+
+      <div class="info-content">
+        <p>
+          Chamonix is home to some of the finest ski schools in the Alps, offering lessons for complete
+          beginners through to advanced skiers looking to refine their technique. Group lessons are a
+          sociable and affordable way to improve, while private instruction allows you to progress at
+          your own pace with a dedicated teacher who can tailor the day to your goals and preferred terrain.
+        </p>
+        <p>
+          The ESF (École du Ski Français) is the largest and most established ski school in Chamonix, with
+          instructors based at every ski area in the valley. For a more boutique experience, several
+          independent schools offer smaller class sizes and a more personalised approach. Many ski schools
+          also cater specifically to children, with dedicated kids' areas, fun activities, and age-appropriate
+          progression programmes that keep young skiers engaged and learning safely.
+        </p>
+        <p>
+          Our concierge team can recommend the best ski school for your group and arrange lessons in advance
+          of your arrival, ensuring everything is organised before you reach the slopes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ski Guiding -->
+  <section class="section-spacing bg-pearl">
+    <div class="container">
+      <div class="section-header">
+        <h2>Off-Piste & Ski Guiding</h2>
+        <p class="section-subtitle">
+          Explore Chamonix's legendary freeride terrain with an expert guide
+        </p>
+      </div>
+
+      <div class="info-content">
+        <p>
+          Chamonix is world-renowned for its off-piste skiing, and hiring a qualified mountain guide is the
+          safest and most rewarding way to experience it. The Compagnie des Guides de Chamonix, founded in
+          1821, is the oldest guide company in the world and remains the gold standard for mountain expertise.
+          Their guides hold the internationally recognised UIAGM qualification and have unparalleled
+          knowledge of local conditions, snowpack stability, and the best lines to ski on any given day.
+        </p>
+        <p>
+          The iconic Vallée Blanche is the must-do experience — a 24km descent from the Aiguille du Midi
+          (3,842m) through spectacular glacial scenery, suitable for confident intermediate skiers when
+          accompanied by a guide. For more experienced freeriders, guides can take you to couloirs and
+          powder fields across Les Grands Montets, the Argentière basin, and remote itineraries that are
+          inaccessible without expert local knowledge.
+        </p>
+        <p>
+          Guides can be booked for half-day or full-day sessions and will tailor the route to your group's
+          ability and the day's conditions. Our concierge team can arrange guiding for you in advance.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ski Touring -->
+  <section class="section-spacing">
+    <div class="container">
+      <div class="section-header">
+        <h2>Ski Touring</h2>
+        <p class="section-subtitle">
+          Earn your turns in some of the most spectacular mountain terrain in Europe
+        </p>
+      </div>
+
+      <div class="info-content">
+        <p>
+          For those looking to escape the lifts entirely, ski touring (randonnée) around Chamonix is an
+          extraordinary experience. Using climbing skins attached to your skis, you ascend under your own
+          power into remote, untouched mountain terrain before skiing back down through pristine snow.
+          It is a deeply rewarding way to connect with the mountains and discover valleys and peaks that
+          most visitors never see.
+        </p>
+        <p>
+          The Chamonix valley offers ski touring routes for all levels of fitness and ambition, from gentle
+          half-day outings in the forests above Les Bois to multi-day haute route traverses linking Chamonix
+          to Zermatt via a chain of mountain refuges. Popular day tours include the Col du Passon above
+          Le Tour, the Grand Montets area for its steep and technical ascents, and the gentler slopes of
+          the Aiguilles Rouges nature reserve directly behind the chalet.
+        </p>
+        <p>
+          A qualified mountain guide is essential for ski touring in this environment. They will assess
+          avalanche conditions, choose the safest route, and ensure your group has the right equipment
+          including transceivers, probes, and shovels. Equipment hire is readily available in Chamonix,
+          and our concierge team can help arrange both guides and gear.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    title="Ready to Hit the Slopes?"
+    description="Book Chalet Josephine for the ultimate Chamonix ski holiday."
+    primaryButtonText="Check Availability"
+    primaryButtonHref="/availability"
+    secondaryButtonText="Contact Us"
+    secondaryButtonHref="/contact"
+  />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-alpine) 100%);
+    padding: var(--space-20) 0;
+    text-align: center;
+    color: white;
+  }
+  .page-hero h1 { color: white; margin-bottom: var(--space-4); }
+  .page-hero-subtitle { font-size: var(--text-xl); color: rgba(255,255,255,0.9); }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+  .section-header h2 {
+    font-size: var(--text-4xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-4);
+  }
+  .section-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-slate);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .intro-text {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .intro-text p {
+    font-size: var(--text-lg);
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+    text-align: center;
+  }
+
+  .info-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .info-content p {
+    font-size: var(--text-base);
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+  .info-content p:last-child { margin-bottom: 0; }
+
+  .ski-areas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+  @media (max-width: 1024px) { .ski-areas { grid-template-columns: 1fr; } }
+
+  .ski-area-card {
+    background: white;
+    border: 2px solid var(--color-stone);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    transition: border-color var(--transition-base);
+  }
+  .ski-area-card:hover { border-color: var(--color-alpine); }
+  .ski-area-card.featured { border-color: var(--color-alpine); }
+  .ski-area-card h3 {
+    font-size: var(--text-xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-1);
+  }
+  .ski-distance {
+    font-size: var(--text-sm);
+    color: var(--color-alpine);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+  }
+  .ski-area-card p {
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-sm);
+  }
+  .ski-stats {
+    list-style: none;
+    padding: 0;
+    border-top: 1px solid var(--color-stone);
+    padding-top: var(--space-4);
+  }
+  .ski-stats li {
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+    padding: var(--space-1) 0;
+  }
+  .ski-pass-note {
+    margin-top: var(--space-4);
+    margin-bottom: 0;
+    font-size: var(--text-xs);
+    color: var(--color-alpine);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.02em;
+  }
+  .ski-area-card.mont-blanc-unlimited {
+    border-color: var(--color-gold);
+    background: linear-gradient(135deg, white 0%, rgba(184, 149, 106, 0.05) 100%);
+  }
+  .ski-area-card.mont-blanc-unlimited:hover { border-color: var(--color-gold); }
+
+  @media (max-width: 640px) {
+    .section-header h2 { font-size: var(--text-3xl); }
+  }
+</style>

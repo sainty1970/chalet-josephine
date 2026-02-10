@@ -1,0 +1,463 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AreaGuideNav from '../../components/layout/AreaGuideNav.astro';
+import CallToAction from '../../components/sections/CallToAction.astro';
+---
+
+<BaseLayout
+  title="Hiking in Chamonix Mont-Blanc | Chalet Josephine Area Guide"
+  description="Complete hiking guide for Chamonix: 600km+ of trails from gentle valley walks to high-altitude adventures. Top routes for relaxed walkers, intermediate hikers, and super-fit adventurers."
+  breadcrumbs={[{ name: "Area Guide", url: "/area-guide" }, { name: "Hiking", url: "/area-guide/hiking" }]}
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Hiking in Chamonix</h1>
+      <p class="page-hero-subtitle">600km+ of trails beneath Europe's highest peak</p>
+    </div>
+  </section>
+
+  <AreaGuideNav current="/area-guide/hiking" />
+
+  <!-- Intro -->
+  <section class="section-spacing">
+    <div class="container">
+      <div class="intro-text">
+        <p>
+          The Chamonix valley is one of the world's premier hiking destinations, offering an extraordinary
+          network of over 600km of marked trails set against the dramatic backdrop of the Mont Blanc massif.
+          From gentle riverside walks through wildflower meadows to demanding high-altitude ridge traverses,
+          there is something for every level of fitness and ambition. The hiking season typically runs from
+          mid-June to mid-October, with July and August offering the warmest weather and the longest days.
+        </p>
+        <p>
+          Many of the best hikes are accessible directly from the valley floor, while the Chamonix lift
+          system (included with the Carte d'Hôte guest card provided at Chalet Josephine) allows you
+          to gain altitude effortlessly and access higher trails without the initial climb. The well-maintained
+          network of mountain refuges provides refreshments, meals, and overnight accommodation for those
+          tackling longer routes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Famous Routes & Sights -->
+  <section class="section-spacing bg-pearl">
+    <div class="container">
+      <div class="section-header">
+        <h2>Famous Routes & Sights</h2>
+        <p class="section-subtitle">
+          Iconic trails that draw hikers from around the world
+        </p>
+      </div>
+
+      <div class="highlights-grid">
+        <div class="highlight-card">
+          <h3>Tour du Mont Blanc</h3>
+          <p>
+            One of the world's most celebrated long-distance trails, the TMB circumnavigates the entire
+            Mont Blanc massif over approximately 170km, passing through France, Italy, and Switzerland.
+            The full circuit typically takes 10–12 days, but many hikers walk individual stages as
+            spectacular day hikes from Chamonix. The trail passes directly through the valley, making
+            Chalet Josephine an ideal base.
+          </p>
+        </div>
+        <div class="highlight-card">
+          <h3>Grand Balcon Sud</h3>
+          <p>
+            This famous panoramic trail runs along the south side of the valley on the Aiguilles Rouges
+            massif, offering what many consider the finest views of Mont Blanc and its glaciers anywhere
+            in the Alps. The classic section from La Flégère to Planpraz is one of the most photographed
+            trails in the region and is accessible directly from Les Bois.
+          </p>
+        </div>
+        <div class="highlight-card">
+          <h3>Grand Balcon Nord</h3>
+          <p>
+            The counterpart to the Grand Balcon Sud, this trail traverses the north side of the valley
+            beneath the Mont Blanc range itself. Walking at mid-altitude through forests and Alpine
+            meadows with views of the Mer de Glace and the Bossons Glacier, it provides a completely
+            different perspective of the massif.
+          </p>
+        </div>
+        <div class="highlight-card">
+          <h3>Lac Blanc</h3>
+          <p>
+            Perhaps the most iconic single destination hike in Chamonix, Lac Blanc sits at 2,352m in
+            the Aiguilles Rouges nature reserve. The stunning turquoise lake perfectly mirrors the
+            Mont Blanc range, creating one of the most photographed mountain scenes in the Alps. A
+            refuge at the lake serves meals and refreshments.
+          </p>
+        </div>
+        <div class="highlight-card">
+          <h3>Mer de Glace</h3>
+          <p>
+            France's largest glacier can be reached by the historic Montenvers rack railway or on foot
+            via a beautiful forest trail from Chamonix. The glacier viewpoint and ice cave offer a
+            fascinating insight into glacial landscapes, and the trail can be combined with the Grand
+            Balcon Nord for a longer day out.
+          </p>
+        </div>
+        <div class="highlight-card">
+          <h3>Aiguilles Rouges Nature Reserve</h3>
+          <p>
+            This protected area directly behind Chalet Josephine is a haven for wildlife and wildflowers,
+            with trails winding through forests of larch and pine, past mountain lakes, and up to
+            panoramic ridgelines. The reserve is home to ibex, chamois, marmots, and golden eagles.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Relaxed Walker -->
+  <section class="section-spacing">
+    <div class="container">
+      <div class="section-header">
+        <h2>For the Relaxed Walker</h2>
+        <p class="section-subtitle">
+          Gentle trails with stunning scenery — no mountaineering experience required
+        </p>
+      </div>
+
+      <div class="routes-grid">
+        <div class="route-card">
+          <div class="route-number">1</div>
+          <h3>Petit Balcon Sud: Les Bois to Chamonix Centre</h3>
+          <p class="route-meta">Distance: 4km | Duration: 1–1.5 hours | Elevation gain: minimal</p>
+          <p>
+            Starting practically from the doorstep of Chalet Josephine, this gentle forest path follows
+            the lower slopes of the Aiguilles Rouges through shaded woodland and sunny clearings. The
+            well-maintained trail is flat to gently undulating, passing through charming hamlets with
+            views across the valley to the Bossons Glacier. It ends in the centre of Chamonix, where
+            you can reward yourself with lunch before taking the bus or a gentle stroll back.
+          </p>
+        </div>
+
+        <div class="route-card">
+          <div class="route-number">2</div>
+          <h3>Promenade des Sources de l'Arve</h3>
+          <p class="route-meta">Distance: 5km loop | Duration: 1.5–2 hours | Elevation gain: 50m</p>
+          <p>
+            This delightful riverside walk follows the Arve river upstream from Les Bois towards
+            Argentière. The flat, well-surfaced path meanders through meadows bursting with wildflowers
+            in summer, passing picnic spots with views of the glaciers tumbling down from the Mont Blanc
+            range. It's perfect for families with young children or anyone seeking a peaceful, scenic stroll
+            with minimal effort.
+          </p>
+        </div>
+
+        <div class="route-card">
+          <div class="route-number">3</div>
+          <h3>Chalet de la Floria from Planpraz (Lift-Assisted)</h3>
+          <p class="route-meta">Distance: 3km return | Duration: 1.5 hours | Elevation gain: 100m (mostly downhill)</p>
+          <p>
+            Take the Planpraz cable car from Brévent (a short walk from the chalet) and enjoy a gentle
+            downhill walk through Alpine meadows to the charming Chalet de la Floria, a mountain refuge
+            set beside a waterfall with magnificent views. Enjoy a drink or a traditional Savoyard lunch
+            on the terrace before continuing down to the valley. The path is well-marked and suitable for
+            anyone with reasonable mobility.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intermediate Hiker -->
+  <section class="section-spacing bg-pearl">
+    <div class="container">
+      <div class="section-header">
+        <h2>For the Intermediate Hiker</h2>
+        <p class="section-subtitle">
+          Half-day and full-day routes with rewarding ascents and panoramic views
+        </p>
+      </div>
+
+      <div class="routes-grid">
+        <div class="route-card">
+          <div class="route-number">1</div>
+          <h3>Lac Blanc via La Flégère</h3>
+          <p class="route-meta">Distance: 8km return | Duration: 4–5 hours | Elevation gain: 650m from La Flégère</p>
+          <p>
+            The classic Chamonix day hike. Take the La Flégère cable car, then follow the well-signed
+            trail as it climbs steadily through the Aiguilles Rouges nature reserve to the stunning
+            Lac Blanc at 2,352m. The turquoise lake reflecting the entire Mont Blanc massif is an
+            unforgettable sight. The Refuge du Lac Blanc serves excellent lunches. You can descend the
+            same way or continue to Planpraz for a circular route, descending via the Brévent cable car.
+          </p>
+        </div>
+
+        <div class="route-card">
+          <div class="route-number">2</div>
+          <h3>Grand Balcon Sud: La Flégère to Planpraz</h3>
+          <p class="route-meta">Distance: 6km one way | Duration: 2.5–3 hours | Elevation gain: 300m</p>
+          <p>
+            One of the finest panoramic walks in the Alps. Starting from the La Flégère lift station,
+            this mid-altitude trail traverses the south side of the valley with continuous, jaw-dropping
+            views of Mont Blanc, the Aiguille du Midi, the Bossons Glacier, and the entire northern
+            face of the massif. The path is well-maintained with some moderate ascents and descents.
+            Finish at Planpraz and take the cable car back down to Brévent — a short walk from the chalet.
+          </p>
+        </div>
+
+        <div class="route-card">
+          <div class="route-number">3</div>
+          <h3>Montenvers to Signal Forbes</h3>
+          <p class="route-meta">Distance: 7km return | Duration: 3.5–4 hours | Elevation gain: 500m</p>
+          <p>
+            Take the Montenvers rack railway to the Mer de Glace viewing platform, then follow the
+            Grand Balcon Nord trail eastward to Signal Forbes at 2,198m. This superb walk offers
+            dramatic close-up views of the Mer de Glace glacier, the Grandes Jorasses, and the Drus.
+            The trail is exposed in places with some steep sections, but the views are among the most
+            spectacular accessible to day hikers in the valley. Return via the same route to catch the
+            train back to Chamonix.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Super-Fit Adventurer -->
+  <section class="section-spacing">
+    <div class="container">
+      <div class="section-header">
+        <h2>For the Super-Fit Adventurer</h2>
+        <p class="section-subtitle">
+          Demanding high-altitude routes for experienced mountain hikers
+        </p>
+      </div>
+
+      <div class="routes-grid">
+        <div class="route-card">
+          <div class="route-number">1</div>
+          <h3>Lac Blanc to Lac des Chéserys Ridge Traverse</h3>
+          <p class="route-meta">Distance: 16km | Duration: 7–8 hours | Elevation gain: 1,200m</p>
+          <p>
+            The ultimate Chamonix day hike. Starting from Les Bois on foot, this demanding route
+            ascends steeply through the Aiguilles Rouges nature reserve to Lac des Chéserys, continues
+            along an exposed ridgeline to Lac Blanc, and then traverses to the Lacs des Chéserys
+            chain before descending via La Flégère. The route takes in some of the most dramatic Alpine
+            scenery in Europe, with the entire Mont Blanc range laid out before you. Requires a good
+            head for heights and mountain hiking experience.
+          </p>
+        </div>
+
+        <div class="route-card">
+          <div class="route-number">2</div>
+          <h3>Le Brévent Summit (2,525m) from Chamonix</h3>
+          <p class="route-meta">Distance: 14km return | Duration: 6–7 hours | Elevation gain: 1,500m</p>
+          <p>
+            A serious ascent from the valley floor to the summit of Le Brévent at 2,525m, gaining
+            over 1,500 metres of elevation. The trail starts near the Brévent cable car station and
+            climbs relentlessly through forest, past the Planpraz mid-station, and up to the summit
+            with its legendary 360-degree panorama. On a clear day, you can see from the Matterhorn
+            to the Ecrins. You can take the cable car down or, for the truly committed, descend on
+            foot via a different route through the Aiguilles Rouges.
+          </p>
+        </div>
+
+        <div class="route-card">
+          <div class="route-number">3</div>
+          <h3>Tour du Mont Blanc: Chamonix to Les Contamines (Stage)</h3>
+          <p class="route-meta">Distance: 22km | Duration: 8–9 hours | Elevation gain: 1,600m</p>
+          <p>
+            Experience one of the most spectacular stages of the Tour du Mont Blanc as a long day hike.
+            From Chamonix, the route climbs to the Col de Voza at 1,653m, continues over the dramatic
+            Col du Tricot with its suspension bridge crossing above a glacial torrent, and descends
+            through the Contamines valley. The constantly changing scenery — from lush forests to
+            windswept cols to glacial valleys — is truly outstanding. Arrange a taxi transfer back
+            to Chamonix from Les Contamines (approximately 40 minutes).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practical Info -->
+  <section class="section-spacing bg-pearl">
+    <div class="container">
+      <div class="section-header">
+        <h2>Practical Information</h2>
+        <p class="section-subtitle">
+          Essential tips for hiking in the Chamonix valley
+        </p>
+      </div>
+
+      <div class="tips-grid">
+        <div class="tip-card">
+          <h3>Lift Access</h3>
+          <p>The Carte d'Hôte guest card, provided with your stay at Chalet Josephine, includes free travel on the Chamonix bus network and discounted lift access. Many of the best hikes are greatly enhanced by using the lifts to gain altitude.</p>
+        </div>
+        <div class="tip-card">
+          <h3>Season & Weather</h3>
+          <p>The main hiking season runs from mid-June to mid-October. Weather in the mountains can change rapidly — always check the forecast, carry waterproofs, and start early for high-altitude routes. Our concierge team can advise on conditions.</p>
+        </div>
+        <div class="tip-card">
+          <h3>Mountain Refuges</h3>
+          <p>The valley's network of mountain refuges (huts) serve meals, drinks, and offer overnight accommodation. Popular refuges should be booked in advance during July and August. They add a wonderful dimension to any hiking holiday.</p>
+        </div>
+        <div class="tip-card">
+          <h3>Guided Hiking</h3>
+          <p>For those wanting to explore more challenging terrain or simply learn more about the local flora, fauna, and geology, hiring a mountain guide or accompanying guide is highly recommended. Our concierge team can arrange this for you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    title="Ready to Explore on Foot?"
+    description="Book Chalet Josephine and discover Chamonix's world-class hiking trails."
+    primaryButtonText="Check Availability"
+    primaryButtonHref="/availability"
+    secondaryButtonText="Contact Us"
+    secondaryButtonHref="/contact"
+  />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-alpine) 100%);
+    padding: var(--space-20) 0;
+    text-align: center;
+    color: white;
+  }
+  .page-hero h1 { color: white; margin-bottom: var(--space-4); }
+  .page-hero-subtitle { font-size: var(--text-xl); color: rgba(255,255,255,0.9); }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+  .section-header h2 {
+    font-size: var(--text-4xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-4);
+  }
+  .section-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-slate);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .intro-text {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .intro-text p {
+    font-size: var(--text-lg);
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+    text-align: center;
+    margin-bottom: var(--space-4);
+  }
+  .intro-text p:last-child { margin-bottom: 0; }
+
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+  @media (max-width: 1024px) { .highlights-grid { grid-template-columns: 1fr; } }
+
+  .highlight-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+  }
+  .highlight-card h3 {
+    font-size: var(--text-xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-3);
+  }
+  .highlight-card p {
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+  }
+
+  .routes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .route-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: var(--space-8) var(--space-8) var(--space-8) var(--space-10);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    border-left: 4px solid var(--color-alpine);
+  }
+
+  .bg-pearl .route-card {
+    background: white;
+  }
+
+  .route-number {
+    position: absolute;
+    top: var(--space-6);
+    left: calc(var(--space-10) * -1 + var(--space-2));
+    width: 2rem;
+    height: 2rem;
+    background: var(--color-alpine);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: var(--text-sm);
+  }
+
+  .route-card h3 {
+    font-size: var(--text-xl);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-2);
+  }
+
+  .route-meta {
+    font-size: var(--text-sm);
+    color: var(--color-alpine);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--space-4);
+  }
+
+  .route-card p:last-child {
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+    margin-bottom: 0;
+  }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+  @media (max-width: 768px) { .tips-grid { grid-template-columns: 1fr; } }
+
+  .tip-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+  }
+  .tip-card h3 {
+    font-size: var(--text-lg);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-3);
+  }
+  .tip-card p {
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+  }
+
+  @media (max-width: 640px) {
+    .section-header h2 { font-size: var(--text-3xl); }
+  }
+</style>

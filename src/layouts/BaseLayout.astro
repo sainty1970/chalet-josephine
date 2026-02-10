@@ -16,6 +16,7 @@ interface Props {
   image?: string;
   structuredDataPage?: 'home' | 'about' | 'gallery' | 'availability' | 'area-guide' | 'contact';
   breadcrumbs?: { name: string; url: string }[];
+  preloadImage?: string;
 }
 
 const {
@@ -24,6 +25,7 @@ const {
   image = '/images/og-image.jpg',
   structuredDataPage = 'home',
   breadcrumbs,
+  preloadImage,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -63,12 +65,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;900&display=swap" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;900&display=swap" /></noscript>
 
+    <!-- Preload LCP image if specified -->
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
+
     <!-- Structured Data -->
     <StructuredData page={structuredDataPage} breadcrumbs={breadcrumbs} />
   </head>
   <body>
     <Header />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>

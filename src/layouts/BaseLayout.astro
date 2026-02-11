@@ -67,6 +67,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- Preload LCP image if specified -->
     {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
 
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BNGYXG3EE1"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BNGYXG3EE1');
+    </script>
+
     <!-- Structured Data -->
     <StructuredData page={structuredDataPage} breadcrumbs={breadcrumbs} />
   </head>

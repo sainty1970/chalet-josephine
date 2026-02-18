@@ -38,20 +38,35 @@ import CallToAction from '../../components/sections/CallToAction.astro';
       </div>
 
       <div class="routes-grid">
-        <div class="route-card">
-          <h3>Col de la Forclaz</h3>
-          <p class="route-meta">Distance: 30km return from Chamonix | Climb: 800m | Gradient: 5–8%</p>
-          <p>A classic cross-border climb into Switzerland via Vallorcine and the Trient valley. The descent into the Rhône valley offers panoramic views of the Valais Alps. A beautiful ride with moderate traffic.</p>
+        <div class="route-card route-card-with-image">
+          <div class="route-card-text">
+            <h3>Col de la Forclaz</h3>
+            <p class="route-meta">Distance: 30km return from Chamonix | Climb: 800m | Gradient: 5–8%</p>
+            <p>A classic cross-border climb into Switzerland via Vallorcine and the Trient valley. The descent into the Rhône valley offers panoramic views of the Valais Alps. A beautiful ride with moderate traffic.</p>
+          </div>
+          <div class="route-card-image">
+            <img src="/images/col-forclaz.jpg" alt="Col de la Forclaz summit sign at 1527m" width="800" height="600" loading="lazy" />
+          </div>
         </div>
-        <div class="route-card">
-          <h3>Col des Montets</h3>
-          <p class="route-meta">Distance: 20km return from Chamonix | Climb: 450m | Gradient: 4–6%</p>
-          <p>A gentler climb through the upper Chamonix valley to Vallorcine, passing through the Aiguilles Rouges nature reserve. Stunning views throughout, with the option to continue over the Col de la Forclaz for a longer ride.</p>
+        <div class="route-card route-card-with-image">
+          <div class="route-card-text">
+            <h3>Col des Montets</h3>
+            <p class="route-meta">Distance: 20km return from Chamonix | Climb: 450m | Gradient: 4–6%</p>
+            <p>A gentler climb through the upper Chamonix valley to Vallorcine, passing through the Aiguilles Rouges nature reserve. Stunning views throughout, with the option to continue over the Col de la Forclaz for a longer ride.</p>
+          </div>
+          <div class="route-card-image">
+            <img src="/images/col-montets.jpg" alt="Col des Montets road with Mont Blanc massif" width="800" height="600" loading="lazy" />
+          </div>
         </div>
-        <div class="route-card">
-          <h3>Chamonix to Megève via Col des Aravis</h3>
-          <p class="route-meta">Distance: 85km loop | Climb: 1,800m | Gradient: varies</p>
-          <p>An epic day ride descending through the Arve valley before climbing the famous Col des Aravis, a Tour de France favourite. The loop returns via Megève and Saint-Gervais with several iconic climbs and breathtaking Alpine scenery throughout.</p>
+        <div class="route-card route-card-with-image">
+          <div class="route-card-text">
+            <h3>Chamonix to Megève via Col des Aravis</h3>
+            <p class="route-meta">Distance: 85km loop | Climb: 1,800m | Gradient: varies</p>
+            <p>An epic day ride descending through the Arve valley before climbing the famous Col des Aravis, a Tour de France favourite. The loop returns via Megève and Saint-Gervais with several iconic climbs and breathtaking Alpine scenery throughout.</p>
+          </div>
+          <div class="route-card-image">
+            <img src="/images/col-aravis.jpg" alt="Winding road through Alpine meadows at Col des Aravis" width="800" height="600" loading="lazy" />
+          </div>
         </div>
       </div>
     </div>
@@ -183,7 +198,6 @@ import CallToAction from '../../components/sections/CallToAction.astro';
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-6);
-    max-width: 900px;
     margin: 0 auto;
   }
 
@@ -195,6 +209,29 @@ import CallToAction from '../../components/sections/CallToAction.astro';
     border-left: 4px solid var(--color-alpine);
   }
   .bg-pearl .route-card { background: white; }
+
+  .route-card-with-image {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: var(--space-8);
+    align-items: center;
+  }
+  .route-card-image {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .route-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    aspect-ratio: 4/3;
+  }
+  @media (max-width: 768px) {
+    .route-card-with-image {
+      grid-template-columns: 1fr;
+    }
+  }
 
   .route-card h3 {
     font-size: var(--text-xl);
